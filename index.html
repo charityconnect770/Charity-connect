@@ -1,1913 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CharityConnect</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7f6;
-    color: #222;
-}
-
-.header {
-    background: #087f5b;
-    color: white;
-    padding: 25px 20px;
-    text-align: center;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 30px;
-}
-
-.header p {
-    margin: 8px 0 0;
-    font-size: 16px;
-}
-
-.container {
-    width: 92%;
-    max-width: 550px;
-    margin: 25px auto;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.tabs {
-    display: flex;
-    margin-bottom: 25px;
-    background: #eef2f1;
-    border-radius: 10px;
-    padding: 4px;
-}
-
-.tab-btn {
-    width: 50%;
-    padding: 13px;
-    border: none;
-    background: transparent;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.tab-btn.active {
-    background: #087f5b;
-    color: white;
-}
-
-.section {
-    display: none;
-}
-
-.section.active {
-    display: block;
-}
-
-h2 {
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    font-weight: bold;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 9px;
-    font-size: 16px;
-}
-
-textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.btn-primary {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px;
-    border: none;
-    border-radius: 9px;
-    background: #087f5b;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-primary:active {
-    transform: scale(0.97);
-}
-
-.btn-secondary {
-    width: 100%;
-    margin-top: 10px;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #e9efed;
-    color: #087f5b;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-secondary:active {
-    transform: scale(0.97);
-}
-
-.btn-gold {
-    width: 100%;
-    margin-top: 10px;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #f0c040;
-    color: #222;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-gold:active {
-    transform: scale(0.97);
-}
-
-.btn-danger {
-    width: 100%;
-    margin-top: 10px;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #dc3545;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-danger:active {
-    transform: scale(0.97);
-}
-
-.btn-success {
-    width: 100%;
-    margin-top: 10px;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #28a745;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-success:active {
-    transform: scale(0.97);
-}
-
-.forgot {
-    text-align: center;
-    margin-top: 15px;
-    color: #087f5b;
-    cursor: pointer;
-}
-
-.bank-option {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f1f8f5;
-    border-radius: 10px;
-}
-
-.bank-option label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
-}
-
-.bank-option input {
-    width: 20px;
-}
-
-#bankDetailsContainer {
-    display: none;
-    margin-top: 15px;
-}
-
-.info {
-    margin-top: 25px;
-    text-align: center;
-    font-size: 13px;
-    color: #777;
-}
-
-/* DASHBOARD */
-
-#dashboard {
-    display: none;
-}
-
-.dashboard-top {
-    background: white;
-    padding: 20px;
-    border-radius: 16px;
-    margin-bottom: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.dashboard-top h2 {
-    text-align: left;
-    margin-bottom: 5px;
-}
-
-.dashboard-top p {
-    color: #666;
-    margin: 0;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.menu-item {
-    background: white;
-    border-radius: 15px;
-    padding: 18px 10px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.menu-item:active {
-    transform: scale(0.97);
-}
-
-.menu-icon {
-    font-size: 30px;
-    display: block;
-    margin-bottom: 7px;
-}
-
-.menu-item.admin {
-    background: #f8f9fa;
-    border: 2px solid #087f5b;
-}
-
-.menu-item.admin .menu-icon {
-    color: #087f5b;
-}
-
-.case {
-    background: white;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.case h3 {
-    margin-top: 0;
-}
-
-.case p {
-    color: #666;
-    line-height: 1.5;
-}
-
-.progress {
-    height: 10px;
-    background: #e5e5e5;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: #087f5b;
-}
-
-.case-info {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    font-size: 14px;
-}
-
-.logout {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #333;
-    color: white;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-/* PAGES */
-
-.page {
-    display: none;
-}
-
-.page.active {
-    display: block;
-}
-
-.page-title {
-    text-align: left;
-    margin-top: 0;
-}
-
-.back-button {
-    border: none;
-    background: #e9efed;
-    color: #087f5b;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    cursor: pointer;
-}
-
-.detail-icon {
-    font-size: 55px;
-    text-align: center;
-}
-
-.detail-amount {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    color: #087f5b;
-    margin: 15px 0;
-}
-
-.detail-text {
-    line-height: 1.6;
-    color: #555;
-}
-
-.donation-box {
-    margin-top: 20px;
-    padding: 18px;
-    background: #f1f8f5;
-    border-radius: 12px;
-}
-
-.amount-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.amount-btn {
-    padding: 12px 5px;
-    border: 1px solid #087f5b;
-    background: white;
-    color: #087f5b;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.amount-btn.selected {
-    background: #087f5b;
-    color: white;
-}
-
-.empty-message {
-    text-align: center;
-    padding: 30px 10px;
-    color: #777;
-}
-
-.profile-row {
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.profile-row strong {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.donation-item {
-    background: #f8faf9;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    border-left: 4px solid #087f5b;
-}
-
-.donation-item .donation-amount {
-    font-size: 20px;
-    font-weight: bold;
-    color: #087f5b;
-}
-
-.donation-item .donation-date {
-    color: #666;
-    font-size: 14px;
-}
-
-.donation-item .donation-status {
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-.donation-item .donation-status.pending {
-    background: #f0c040;
-    color: #222;
-}
-
-.donation-item .donation-status.completed {
-    background: #28a745;
-    color: white;
-}
-
-.donation-item .donation-status.demo {
-    background: #087f5b;
-    color: white;
-}
-
-.donation-item .verify-btn {
-    margin-top: 8px;
-    padding: 6px 15px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.donation-item .verify-btn:active {
-    transform: scale(0.95);
-}
-
-.donation-item .delete-btn {
-    margin-top: 8px;
-    padding: 6px 15px;
-    background: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    margin-left: 5px;
-}
-
-.donation-item .delete-btn:active {
-    transform: scale(0.95);
-}
-
-/* BANK DETAILS STYLES */
-
-.bank-details {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 15px 0;
-    border: 2px dashed #087f5b;
-}
-
-.bank-details .bank-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.bank-details .bank-row:last-child {
-    border-bottom: none;
-}
-
-.bank-details .bank-label {
-    font-weight: bold;
-    color: #555;
-}
-
-.bank-details .bank-value {
-    color: #222;
-    font-family: monospace;
-    font-size: 14px;
-    word-break: break-all;
-    text-align: right;
-    max-width: 60%;
-}
-
-.copy-btn {
-    background: #087f5b;
-    color: white;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.copy-btn:active {
-    transform: scale(0.95);
-}
-
-/* TRANSFER CONFIRMATION */
-
-.transfer-box {
-    background: #fff8e1;
-    border: 2px solid #f0c040;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 15px 0;
-}
-
-.transfer-box input {
-    margin-top: 5px;
-}
-
-/* ADMIN STATS */
-
-.stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 15px 0;
-}
-
-.stat-card {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.stat-card .stat-number {
-    font-size: 28px;
-    font-weight: bold;
-    color: #087f5b;
-}
-
-.stat-card .stat-label {
-    font-size: 13px;
-    color: #666;
-    margin-top: 5px;
-}
-
-.admin-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 2px solid #eee;
-}
-
-.admin-section h3 {
-    margin-top: 0;
-}
-
-/* Admin Login */
-
-#adminAuthContainer {
-    display: none;
-}
-
-#adminDashboard {
-    display: none;
-}
-
-.admin-header {
-    background: #1a1a2e;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.admin-header h2 {
-    margin: 0;
-    font-size: 20px;
-}
-
-.admin-header .admin-badge {
-    background: #f0c040;
-    color: #222;
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.admin-login-btn {
-    background: #1a1a2e;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.admin-login-btn:active {
-    transform: scale(0.95);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharityConnect · Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f7f9fc 0%, #eef2f7 100%);
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Admin Toggle Button */
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #176b87;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-toggle:hover {
+            background: #0f4d62;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            z-index: 2000;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+        }
+
+        .admin-overlay.active {
+            display: block;
+        }
+
+        .admin-panel h2 {
+            color: #176b87;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-input-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .admin-input-group label {
+            font-weight: 600;
+            color: #1f3a4b;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .admin-input-group input,
+        .admin-input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dde5ed;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .admin-input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .btn-save {
+            background: #176b87;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-close {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Charity Card */
+        .charity-card {
+            background: white;
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 50px rgba(0, 20, 30, 0.12);
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .welcome-panel {
+            flex: 1 1 40%;
+            background: linear-gradient(160deg, #1e4b5e 0%, #176b87 100%);
+            padding: 2.5rem 2rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-panel h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-panel h1 i {
+            color: #ffd166;
+            margin-right: 10px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1.8rem;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .feature-highlight p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .feature-highlight i {
+            font-size: 1.6rem;
+            color: #ffe5a3;
+        }
+
+        .form-panel {
+            flex: 1 1 60%;
+            padding: 2.2rem 2.5rem;
+            background: white;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.7rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6b7b8c;
+            cursor: pointer;
+            padding: 0.5rem 0.2rem;
+        }
+
+        .tab-btn.active {
+            color: #176b87;
+            border-bottom: 3px solid #176b87;
+        }
+
+        .form-section {
+            display: none;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .form-section.active {
+            display: flex;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1f3a4b;
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            background: #f8fafd;
+            border: 1.5px solid #dde5ed;
+            border-radius: 16px;
+            padding: 0.75rem 1rem;
+        }
+
+        .input-field input,
+        .input-field select,
+        .input-field textarea {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .input-field i {
+            margin-right: 12px;
+            color: #56748c;
+        }
+
+        .bank-host-option {
+            background: #f0f6fa;
+            border-left: 4px solid #1e4b5e;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .bank-host-option i {
+            font-size: 2rem;
+            color: #176b87;
+        }
+
+        .btn-primary {
+            background: #176b87;
+            color: white;
+            border: none;
+            padding: 0.9rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 0.7rem;
+        }
+
+        .content-editable {
+            transition: all 0.3s;
+            border: 2px dashed transparent;
+        }
+
+        .content-editable:hover {
+            border-color: #ffd166;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="header">
-    <h1>❤️ CharityConnect</h1>
-    <p>Connecting people who need help with people who want to help.</p>
-</div>
-
-
-<!-- LOGIN / REGISTER -->
-
-<div class="container" id="authContainer">
-
-    <div class="card">
-
-        <div class="tabs">
-
-            <button class="tab-btn active" id="loginTab">
-                Login
-            </button>
-
-            <button class="tab-btn" id="registerTab">
-                Create Profile
-            </button>
-
-            <button class="tab-btn" id="adminLoginTab" style="background:#1a1a2e;color:white;">
-                🔐 Admin
-            </button>
-
-        </div>
-
-
-        <div id="loginSection" class="section active">
-
-            <h2>Welcome Back</h2>
-
-            <label>Email</label>
-            <input type="email" id="loginEmail"
-                   placeholder="Enter your email">
-
-            <label>Password</label>
-            <input type="password" id="loginPassword"
-                   placeholder="Enter your password">
-
-            <button class="btn-primary" id="loginButton">
-                Login
-            </button>
-
-            <div class="forgot" id="forgotPassword">
-                Forgot Password?
-            </div>
-
-        </div>
-
-
-        <div id="registerSection" class="section">
-
-            <h2>Create Your Profile</h2>
-
-            <label>Full Name</label>
-            <input type="text" id="fullName"
-                   placeholder="Enter your full name">
-
-            <label>Email</label>
-            <input type="email" id="registerEmail"
-                   placeholder="Enter your email">
-
-            <label>Password</label>
-            <input type="password" id="registerPassword"
-                   placeholder="Minimum 8 characters">
-
-            <div class="bank-option">
-
-                <label>
-                    <input type="checkbox" id="hostBankCheck">
-                    I want to host a charity bank account
-                </label>
-
-            </div>
-
-            <div id="bankDetailsContainer">
-
-                <label>Bank Name</label>
-                <input type="text"
-                       placeholder="Enter bank name">
-
-                <label>Account Holder</label>
-                <input type="text"
-                       placeholder="Account holder name">
-
-            </div>
-
-            <button class="btn-primary" id="registerButton">
-                Create Profile
-            </button>
-
-        </div>
-
-
-        <!-- ADMIN LOGIN SECTION -->
-
-        <div id="adminLoginSection" class="section">
-
-            <h2>🔐 Admin Login</h2>
-
-            <label>Admin Username</label>
-            <input type="text" id="adminUsername"
-                   placeholder="Enter admin username">
-
-            <label>Admin Password</label>
-            <input type="password" id="adminPassword"
-                   placeholder="Enter admin password">
-
-            <button class="btn-primary" id="adminLoginButton">
-                Login as Admin
-            </button>
-
-            <div class="info" style="margin-top:15px;">
-                Default: username: <strong>admin</strong> | password: <strong>admin123</strong>
-            </div>
-
-        </div>
-
-        <div class="info">
-            CharityConnect demonstration project.
-            Real accounts and payments require a secure backend.
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- USER DASHBOARD -->
-
-<div class="container" id="dashboard">
-
-    <div class="dashboard-top">
-
-        <h2>Welcome to CharityConnect ❤️</h2>
-
-        <p id="welcomeName">
-            Together we can make a difference.
-        </p>
-
-        <button class="admin-login-btn" onclick="showAdminLogin()">
-            🔐 Admin Panel
-        </button>
-
-    </div>
-
-
-    <div class="menu-grid">
-
-        <div class="menu-item" id="homeMenu">
-            <span class="menu-icon">🏠</span>
-            Home
-        </div>
-
-        <div class="menu-item" id="emergencyMenu">
-            <span class="menu-icon">❤️</span>
-            Emergency Help
-        </div>
-
-        <div class="menu-item" id="donateMenu">
-            <span class="menu-icon">💰</span>
-            Donate
-        </div>
-
-        <div class="menu-item" id="volunteerMenu">
-            <span class="menu-icon">🤝</span>
-            Volunteer
-        </div>
-
-        <div class="menu-item" id="donationsMenu">
-            <span class="menu-icon">📋</span>
-            My Donations
-        </div>
-
-        <div class="menu-item" id="profileMenu">
-            <span class="menu-icon">👤</span>
-            My Profile
-        </div>
-
-    </div>
-
-
-    <!-- HOME PAGE -->
-
-    <div id="homePage" class="page active">
-
-        <h2 class="page-title">
-            ❤️ Urgent Help Needed
-        </h2>
-
-
-        <div class="case">
-
-            <h3>🏥 Emergency Medical Help</h3>
-
-            <p>
-                A family needs urgent financial assistance
-                for medical treatment.
-            </p>
-
-            <div class="progress">
-                <div class="progress-bar" style="width:45%;"></div>
-            </div>
-
-            <div class="case-info">
-                <span>AED 4,500 raised</span>
-                <span>AED 10,000 goal</span>
-            </div>
-
-            <button class="btn-primary"
-                    onclick="openCase('medical')">
-                View Case
-            </button>
-
-        </div>
-
-
-        <div class="case">
-
-            <h3>🏠 Emergency Housing</h3>
-
-            <p>
-                Help a family secure safe temporary housing
-                after losing their home.
-            </p>
-
-            <div class="progress">
-                <div class="progress-bar" style="width:68%;"></div>
-            </div>
-
-            <div class="case-info">
-                <span>AED 6,800 raised</span>
-                <span>AED 10,000 goal</span>
-            </div>
-
-            <button class="btn-primary"
-                    onclick="openCase('housing')">
-                View Case
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- CASE DETAILS -->
-
-    <div id="casePage" class="page">
-
-        <button class="back-button" onclick="showPage('homePage')">
-            ← Back
-        </button>
-
-        <div class="card">
-
-            <div class="detail-icon" id="caseIcon">
-                🏥
-            </div>
-
-            <h2 id="caseTitle">
-                Emergency Medical Help
-            </h2>
-
-            <div class="detail-amount" id="caseAmount">
-                AED 4,500 / AED 10,000
-            </div>
-
-            <p class="detail-text" id="caseDescription">
-                A family needs urgent financial assistance
-                for medical treatment.
-            </p>
-
-            <div class="progress">
-                <div class="progress-bar"
-                     id="detailProgress"
-                     style="width:45%;">
+    <div class="main-container">
+        <!-- Charity Card -->
+        <div class="charity-card">
+            <!-- Left Panel -->
+            <div class="welcome-panel">
+                <h1>
+                    <i class="fas fa-hands-helping"></i> 
+                    <span id="siteName">CharityConnect</span>
+                </h1>
+                <div class="tagline" id="siteTagline">
+                    Empowering everyone to give & host with trust.
+                </div>
+                <div class="feature-highlight">
+                    <p>
+                        <i class="fas fa-user-plus"></i> 
+                        <span id="feature1">Create your profile – anyone can join.</span>
+                    </p>
+                </div>
+                <div class="feature-highlight">
+                    <p>
+                        <i class="fas fa-university"></i> 
+                        <span id="feature2">Host a bank account – securely link.</span>
+                    </p>
+                </div>
+                <div style="margin-top: 1.2rem; opacity: 0.8; font-size: 0.9rem;" id="securityNote">
+                    <i class="fas fa-shield-alt"></i> 256-bit encryption · transparent reporting
                 </div>
             </div>
 
-
-            <div class="donation-box">
-
-                <h3>❤️ Support This Case</h3>
-
-                <p>
-                    Select a donation amount:
-                </p>
-
-                <div class="amount-buttons">
-
-                    <button class="amount-btn"
-                            onclick="selectAmount(50)">
-                        AED 50
+            <!-- Right Panel -->
+            <div class="form-panel">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="login">
+                        <i class="fas fa-sign-in-alt"></i> Login
                     </button>
-
-                    <button class="amount-btn"
-                            onclick="selectAmount(100)">
-                        AED 100
+                    <button class="tab-btn" data-tab="register">
+                        <i class="fas fa-user-circle"></i> Create Profile
                     </button>
-
-                    <button class="amount-btn"
-                            onclick="selectAmount(500)">
-                        AED 500
-                    </button>
-
                 </div>
 
-                <label>Other Amount</label>
+                <!-- Login Section -->
+                <div id="login-section" class="form-section active">
+                    <div class="input-group">
+                        <label><i class="fas fa-envelope"></i> Email or Username</label>
+                        <div class="input-field">
+                            <i class="fas fa-at"></i>
+                            <input type="email" placeholder="you@example.org">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <div class="input-field">
+                            <i class="fas fa-key"></i>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                    </div>
+                    <button class="btn-primary">Log in to your account</button>
+                </div>
 
-                <input type="number"
-                       id="customAmount"
-                       placeholder="Enter AED amount">
-
-                <button class="btn-primary"
-                        onclick="makeDonation()">
-                    ❤️ Donate Now
-                </button>
-
-                <button class="btn-gold"
-                        onclick="showBankTransfer()">
-                    🏦 Transfer via Bank
-                </button>
-
+                <!-- Register Section -->
+                <div id="register-section" class="form-section">
+                    <div class="input-group">
+                        <label>Full name *</label>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="e.g., Alex Morgan">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Email address *</label>
+                        <div class="input-field">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <input type="email" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="bank-host-option">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <strong>Host a bank account</strong>
+                            <span>Enable secure fundraising</span>
+                        </div>
+                        <input type="checkbox" checked>
+                    </div>
+                    <button class="btn-primary">Create free profile</button>
+                </div>
             </div>
-
         </div>
-
     </div>
 
-
-    <!-- BANK TRANSFER PAGE -->
-
-    <div id="bankTransferPage" class="page">
-
-        <button class="back-button" onclick="showPage('casePage')">
-            ← Back to Case
-        </button>
-
-        <div class="card">
-
-            <h2>🏦 Bank Transfer Donation</h2>
-
-            <p class="detail-text" style="text-align:center;">
-                Please transfer your donation to the bank account below.
-            </p>
-
-            <div class="bank-details">
-                <div class="bank-row">
-                    <span class="bank-label">Account Holder</span>
-                    <span class="bank-value">Muhammad Ibrahim</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">Bank Name</span>
-                    <span class="bank-value">Emirates Islamic Bank</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">Account Number</span>
-                    <span class="bank-value">1015783815601</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">IBAN</span>
-                    <span class="bank-value" style="font-size:12px;">AE49 0260 0010 1578 3815 601</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">Currency</span>
-                    <span class="bank-value">AED</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">SWIFT Code</span>
-                    <span class="bank-value">EBILAEAD</span>
-                </div>
-                <div class="bank-row">
-                    <span class="bank-label">Routing Number</span>
-                    <span class="bank-value">202620103</span>
-                </div>
-            </div>
-
-            <button class="btn-secondary" onclick="copyIBAN()">
-                📋 Copy IBAN
-            </button>
-
-            <hr style="margin:20px 0;border:1px solid #eee;">
-
-            <div class="transfer-box">
-
-                <h3>✅ Confirm Your Transfer</h3>
-
-                <label>Amount Transferred (AED)</label>
-                <input type="number" id="transferAmount"
-                       placeholder="Enter amount">
-
-                <label>Transaction Reference Number</label>
-                <input type="text" id="transactionRef"
-                       placeholder="Enter bank reference number">
-
-                <label>Your Name</label>
-                <input type="text" id="transferName"
-                       placeholder="Enter your full name">
-
-                <button class="btn-primary"
-                        onclick="confirmBankTransfer()">
-                    ✅ Confirm Bank Transfer
-                </button>
-
-            </div>
-
-            <div class="info">
-                Your donation will be marked as "Pending" until we verify the transfer.
-                You will receive a confirmation once verified.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- DONATE PAGE -->
-
-    <div id="donatePage" class="page">
-
-        <button class="back-button"
-                onclick="showPage('homePage')">
-            ← Back
-        </button>
-
-        <div class="card">
-
-            <h2>💰 Donate</h2>
-
-            <p class="detail-text">
-                Your donation can help provide food,
-                medical care, housing and emergency support.
-            </p>
-
-            <h3>Select an emergency case:</h3>
-
-            <button class="btn-primary"
-                    onclick="openCase('medical')">
-                🏥 Medical Help
-            </button>
-
-            <button class="btn-secondary"
-                    onclick="openCase('housing')">
-                🏠 Housing Help
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- VOLUNTEER PAGE -->
-
-    <div id="volunteerPage" class="page">
-
-        <button class="back-button"
-                onclick="showPage('homePage')">
-            ← Back
-        </button>
-
-        <div class="card">
-
-            <h2>🤝 Become a Volunteer</h2>
-
-            <p class="detail-text">
-                Volunteers can help CharityConnect
-                support people and communities in need.
-            </p>
-
-            <label>Your Name</label>
-            <input id="volunteerName"
-                   placeholder="Enter your name">
-
-            <label>Phone</label>
-            <input id="volunteerPhone"
-                   placeholder="Enter your phone number">
-
-            <label>How would you like to help?</label>
-            <textarea id="volunteerHelp"
-                      placeholder="Tell us how you can help"></textarea>
-
-            <button class="btn-primary"
-                    onclick="joinVolunteer()">
-                🤝 Join as Volunteer
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- DONATIONS PAGE -->
-
-    <div id="donationsPage" class="page">
-
-        <button class="back-button"
-                onclick="showPage('homePage')">
-            ← Back
-        </button>
-
-        <div class="card">
-
-            <h2>📋 My Donations</h2>
-
-            <div id="donationHistory">
-                <!-- Donations will appear here -->
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PROFILE PAGE -->
-
-    <div id="profilePage" class="page">
-
-        <button class="back-button"
-                onclick="showPage('homePage')">
-            ← Back
-        </button>
-
-        <div class="card">
-
-            <h2>👤 My Profile</h2>
-
-            <div class="profile-row">
-                <strong>Name</strong>
-                <span id="profileName">-</span>
-            </div>
-
-            <div class="profile-row">
-                <strong>Email</strong>
-                <span id="profileEmail">-</span>
-            </div>
-
-            <button class="btn-secondary"
-                    onclick="alert('Profile editing will be added next.')">
-                Edit Profile
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <button class="logout"
-            id="logoutButton">
-        Logout
+    <!-- Admin Toggle Button -->
+    <button class="admin-toggle" onclick="toggleAdmin()">
+        <i class="fas fa-user-shield"></i> Admin
     </button>
 
-</div>
+    <!-- Admin Overlay -->
+    <div class="admin-overlay" id="adminOverlay" onclick="toggleAdmin()"></div>
 
-
-<!-- ============================================ -->
-<!-- ADMIN DASHBOARD -->
-<!-- ============================================ -->
-
-<div class="container" id="adminDashboard">
-
-    <div class="admin-header">
-        <h2>🔐 Admin Panel</h2>
-        <span class="admin-badge">Administrator</span>
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <h2><i class="fas fa-edit"></i> Edit Website Content</h2>
+        
+        <div class="admin-input-group">
+            <label>Site Name</label>
+            <input type="text" id="editSiteName" placeholder="CharityConnect">
+        </div>
+        
+        <div class="admin-input-group">
+            <label>Tagline</label>
+            <textarea id="editTagline">Empowering everyone to give & host with trust.</textarea>
+        </div>
+        
+        <div class="admin-input-group">
+            <label>Feature 1</label>
+            <textarea id="editFeature1">Create your profile – anyone can join.</textarea>
+        </div>
+        
+        <div class="admin-input-group">
+            <label>Feature 2</label>
+            <textarea id="editFeature2">Host a bank account – securely link.</textarea>
+        </div>
+        
+        <div class="admin-input-group">
+            <label>Security Note</label>
+            <input type="text" id="editSecurity" value="256-bit encryption · transparent reporting">
+        </div>
+        
+        <button class="btn-save" onclick="saveChanges()">
+            <i class="fas fa-save"></i> Save Changes
+        </button>
+        
+        <button class="btn-close" onclick="toggleAdmin()">
+            <i class="fas fa-times"></i> Close
+        </button>
     </div>
 
-    <div class="card">
-
-        <!-- Admin Stats -->
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="adminTotalDonations">0</div>
-                <div class="stat-label">Total Donations</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="adminTotalAmount">AED 0</div>
-                <div class="stat-label">Total Amount</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="adminPendingCount">0</div>
-                <div class="stat-label">Pending</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="adminVolunteerCount">0</div>
-                <div class="stat-label">Volunteers</div>
-            </div>
-        </div>
-
-        <!-- Admin Tabs -->
-        <div class="tabs">
-            <button class="tab-btn active" id="adminDonationsTab">
-                📋 Donations
-            </button>
-            <button class="tab-btn" id="adminVolunteersTab">
-                🤝 Volunteers
-            </button>
-            <button class="tab-btn" id="adminUsersTab">
-                👤 Users
-            </button>
-        </div>
-
-        <!-- Admin Donations List -->
-        <div id="adminDonationsSection" class="section active">
-            <h3>All Donations</h3>
-            <div id="adminDonationsList">
-                <div class="empty-message">Loading donations...</div>
-            </div>
-        </div>
-
-        <!-- Admin Volunteers List -->
-        <div id="adminVolunteersSection" class="section">
-            <h3>All Volunteers</h3>
-            <div id="adminVolunteersList">
-                <div class="empty-message">No volunteers yet.</div>
-            </div>
-        </div>
-
-        <!-- Admin Users List -->
-        <div id="adminUsersSection" class="section">
-            <h3>All Users</h3>
-            <div id="adminUsersList">
-                <div class="empty-message">No users registered yet.</div>
-            </div>
-        </div>
-
-        <button class="btn-danger" onclick="adminLogout()">
-            🚪 Logout from Admin
-        </button>
-
-        <button class="btn-secondary" onclick="goToUserDashboard()">
-            ← Back to User Dashboard
-        </button>
-
-    </div>
-
-</div>
-
-
-<script>
-
-// ============================================
-// DATA STORAGE HELPERS
-// ============================================
-
-function getDonations() {
-    return JSON.parse(localStorage.getItem("charityDonations")) || [];
-}
-
-function saveDonations(donations) {
-    localStorage.setItem("charityDonations", JSON.stringify(donations));
-}
-
-function getUsers() {
-    return JSON.parse(localStorage.getItem("charityUsers")) || [];
-}
-
-function saveUsers(users) {
-    localStorage.setItem("charityUsers", JSON.stringify(users));
-}
-
-function getVolunteers() {
-    return JSON.parse(localStorage.getItem("charityVolunteers")) || [];
-}
-
-function saveVolunteers(volunteers) {
-    localStorage.setItem("charityVolunteers", JSON.stringify(volunteers));
-}
-
-
-// ============================================
-// USER AUTHENTICATION
-// ============================================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const authContainer = document.getElementById("authContainer");
-    const dashboard = document.getElementById("dashboard");
-    const loginSection = document.getElementById("loginSection");
-    const registerSection = document.getElementById("registerSection");
-    const adminLoginSection = document.getElementById("adminLoginSection");
-    const loginTab = document.getElementById("loginTab");
-    const registerTab = document.getElementById("registerTab");
-    const adminLoginTab = document.getElementById("adminLoginTab");
-    const bankCheck = document.getElementById("hostBankCheck");
-    const bankDetails = document.getElementById("bankDetailsContainer");
-
-    // Load data on startup
-    loadDonations();
-    loadAdminData();
-
-    /* LOGIN TAB */
-    loginTab.addEventListener("click", function () {
-        loginTab.classList.add("active");
-        registerTab.classList.remove("active");
-        adminLoginTab.classList.remove("active");
-        loginSection.classList.add("active");
-        registerSection.classList.remove("active");
-        adminLoginSection.classList.remove("active");
-    });
-
-    /* REGISTER TAB */
-    registerTab.addEventListener("click", function () {
-        registerTab.classList.add("active");
-        loginTab.classList.remove("active");
-        adminLoginTab.classList.remove("active");
-        registerSection.classList.add("active");
-        loginSection.classList.remove("active");
-        adminLoginSection.classList.remove("active");
-    });
-
-    /* ADMIN LOGIN TAB */
-    adminLoginTab.addEventListener("click", function () {
-        adminLoginTab.classList.add("active");
-        loginTab.classList.remove("active");
-        registerTab.classList.remove("active");
-        adminLoginSection.classList.add("active");
-        loginSection.classList.remove("active");
-        registerSection.classList.remove("active");
-    });
-
-    /* BANK CHECKBOX */
-    bankCheck.addEventListener("change", function () {
-        bankDetails.style.display = this.checked ? "block" : "none";
-    });
-
-    /* USER LOGIN */
-    document.getElementById("loginButton").addEventListener("click", function () {
-        const email = document.getElementById("loginEmail").value.trim();
-        const password = document.getElementById("loginPassword").value.trim();
-
-        if (!email || !password) {
-            alert("⚠️ Please enter your email and password.");
-            return;
+    <script>
+        // Load saved content from localStorage
+        function loadContent() {
+            const content = JSON.parse(localStorage.getItem('charityContent')) || {};
+            
+            if (content.siteName) document.getElementById('siteName').textContent = content.siteName;
+            if (content.tagline) document.getElementById('siteTagline').textContent = content.tagline;
+            if (content.feature1) document.getElementById('feature1').textContent = content.feature1;
+            if (content.feature2) document.getElementById('feature2').textContent = content.feature2;
+            if (content.securityNote) document.getElementById('securityNote').innerHTML = '<i class="fas fa-shield-alt"></i> ' + content.securityNote;
+            
+            // Populate admin panel inputs
+            document.getElementById('editSiteName').value = document.getElementById('siteName').textContent;
+            document.getElementById('editTagline').value = document.getElementById('siteTagline').textContent;
+            document.getElementById('editFeature1').value = document.getElementById('feature1').textContent;
+            document.getElementById('editFeature2').value = document.getElementById('feature2').textContent;
+            document.getElementById('editSecurity').value = document.getElementById('securityNote').textContent.replace('🔒 ', '');
         }
 
-        // Save user
-        let users = getUsers();
-        let userExists = users.find(u => u.email === email);
-        if (!userExists) {
-            users.push({ name: "CharityConnect Member", email: email, password: password });
-            saveUsers(users);
+        // Save changes to localStorage
+        function saveChanges() {
+            const content = {
+                siteName: document.getElementById('editSiteName').value,
+                tagline: document.getElementById('editTagline').value,
+                feature1: document.getElementById('editFeature1').value,
+                feature2: document.getElementById('editFeature2').value,
+                securityNote: document.getElementById('editSecurity').value
+            };
+            
+            localStorage.setItem('charityContent', JSON.stringify(content));
+            loadContent();
+            toggleAdmin();
+            alert('✅ Changes saved successfully!');
         }
 
-        document.getElementById("welcomeName").textContent = "Welcome back! You are logged in as " + email;
-        document.getElementById("profileEmail").textContent = email;
-        document.getElementById("profileName").textContent = userExists ? userExists.name : "CharityConnect Member";
-
-        authContainer.style.display = "none";
-        dashboard.style.display = "block";
-        document.getElementById("adminDashboard").style.display = "none";
-
-        showPage("homePage");
-        loadDonations();
-        window.scrollTo(0, 0);
-    });
-
-    /* USER REGISTER */
-    document.getElementById("registerButton").addEventListener("click", function () {
-        const name = document.getElementById("fullName").value.trim();
-        const email = document.getElementById("registerEmail").value.trim();
-        const password = document.getElementById("registerPassword").value.trim();
-
-        if (!name || !email || !password) {
-            alert("⚠️ Please complete all required fields.");
-            return;
+        // Toggle admin panel
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            const overlay = document.getElementById('adminOverlay');
+            
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
         }
 
-        if (password.length < 8) {
-            alert("⚠️ Password must contain at least 8 characters.");
-            return;
-        }
-
-        let users = getUsers();
-        if (users.find(u => u.email === email)) {
-            alert("⚠️ This email is already registered. Please login.");
-            return;
-        }
-
-        users.push({ name: name, email: email, password: password });
-        saveUsers(users);
-
-        document.getElementById("welcomeName").textContent = "Welcome, " + name + "!";
-        document.getElementById("profileName").textContent = name;
-        document.getElementById("profileEmail").textContent = email;
-
-        authContainer.style.display = "none";
-        dashboard.style.display = "block";
-        document.getElementById("adminDashboard").style.display = "none";
-
-        showPage("homePage");
-        loadDonations();
-        alert("🎉 Your CharityConnect profile has been created!");
-        window.scrollTo(0, 0);
-    });
-
-    /* ADMIN LOGIN */
-    document.getElementById("adminLoginButton").addEventListener("click", function () {
-        const username = document.getElementById("adminUsername").value.trim();
-        const password = document.getElementById("adminPassword").value.trim();
-
-        if (username === "admin" && password === "admin123") {
-            authContainer.style.display = "none";
-            dashboard.style.display = "none";
-            document.getElementById("adminDashboard").style.display = "block";
-            loadAdminData();
-            window.scrollTo(0, 0);
-        } else {
-            alert("⚠️ Invalid admin credentials!\n\nDefault: admin / admin123");
-        }
-    });
-
-    /* FORGOT PASSWORD */
-    document.getElementById("forgotPassword").addEventListener("click", function () {
-        alert("🔐 Password recovery will be connected to a secure backend later.");
-    });
-
-    /* MENU BUTTONS */
-    document.getElementById("homeMenu").addEventListener("click", function () {
-        showPage("homePage");
-    });
-
-    document.getElementById("emergencyMenu").addEventListener("click", function () {
-        showPage("homePage");
-        window.scrollTo(0, 0);
-    });
-
-    document.getElementById("donateMenu").addEventListener("click", function () {
-        showPage("donatePage");
-    });
-
-    document.getElementById("volunteerMenu").addEventListener("click", function () {
-        showPage("volunteerPage");
-    });
-
-    document.getElementById("donationsMenu").addEventListener("click", function () {
-        showPage("donationsPage");
-        loadDonations();
-    });
-
-    document.getElementById("profileMenu").addEventListener("click", function () {
-        showPage("profilePage");
-    });
-
-    /* LOGOUT */
-    document.getElementById("logoutButton").addEventListener("click", function () {
-        if (confirm("Are you sure you want to logout?")) {
-            dashboard.style.display = "none";
-            authContainer.style.display = "block";
-            document.getElementById("adminDashboard").style.display = "none";
-            loginSection.classList.add("active");
-            registerSection.classList.remove("active");
-            adminLoginSection.classList.remove("active");
-            loginTab.classList.add("active");
-            registerTab.classList.remove("active");
-            adminLoginTab.classList.remove("active");
-            window.scrollTo(0, 0);
-        }
-    });
-
-    /* ADMIN TABS */
-    document.getElementById("adminDonationsTab").addEventListener("click", function() {
-        this.classList.add("active");
-        document.getElementById("adminVolunteersTab").classList.remove("active");
-        document.getElementById("adminUsersTab").classList.remove("active");
-        document.getElementById("adminDonationsSection").classList.add("active");
-        document.getElementById("adminVolunteersSection").classList.remove("active");
-        document.getElementById("adminUsersSection").classList.remove("active");
-        loadAdminData();
-    });
-
-    document.getElementById("adminVolunteersTab").addEventListener("click", function() {
-        this.classList.add("active");
-        document.getElementById("adminDonationsTab").classList.remove("active");
-        document.getElementById("adminUsersTab").classList.remove("active");
-        document.getElementById("adminVolunteersSection").classList.add("active");
-        document.getElementById("adminDonationsSection").classList.remove("active");
-        document.getElementById("adminUsersSection").classList.remove("active");
-        loadAdminData();
-    });
-
-    document.getElementById("adminUsersTab").addEventListener("click", function() {
-        this.classList.add("active");
-        document.getElementById("adminDonationsTab").classList.remove("active");
-        document.getElementById("adminVolunteersTab").classList.remove("active");
-        document.getElementById("adminUsersSection").classList.add("active");
-        document.getElementById("adminDonationsSection").classList.remove("active");
-        document.getElementById("adminVolunteersSection").classList.remove("active");
-        loadAdminData();
-    });
-
-});
-
-
-// ============================================
-// PAGE NAVIGATION
-// ============================================
-
-function showPage(pageId) {
-    const pages = document.querySelectorAll(".page");
-    pages.forEach(function (page) {
-        page.classList.remove("active");
-    });
-    const page = document.getElementById(pageId);
-    if (page) {
-        page.classList.add("active");
-    }
-    window.scrollTo(0, 0);
-}
-
-function showAdminLogin() {
-    document.getElementById("authContainer").style.display = "block";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("adminDashboard").style.display = "none";
-    
-    // Switch to admin login tab
-    document.getElementById("adminLoginTab").click();
-}
-
-function goToUserDashboard() {
-    document.getElementById("adminDashboard").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-    document.getElementById("authContainer").style.display = "none";
-    showPage("homePage");
-}
-
-
-// ============================================
-// CASE FUNCTIONS
-// ============================================
-
-function openCase(type) {
-    showPage("casePage");
-
-    const title = document.getElementById("caseTitle");
-    const icon = document.getElementById("caseIcon");
-    const amount = document.getElementById("caseAmount");
-    const description = document.getElementById("caseDescription");
-    const progress = document.getElementById("detailProgress");
-
-    if (type === "medical") {
-        icon.textContent = "🏥";
-        title.textContent = "Emergency Medical Help";
-        amount.textContent = "AED 4,500 / AED 10,000";
-        description.textContent = "A family needs urgent financial assistance for medical treatment. Your donation can help cover essential medical expenses.";
-        progress.style.width = "45%";
-    }
-
-    if (type === "housing") {
-        icon.textContent = "🏠";
-        title.textContent = "Emergency Housing";
-        amount.textContent = "AED 6,800 / AED 10,000";
-        description.textContent = "A family needs safe temporary housing after losing their home. Your support can help provide a safe place to stay.";
-        progress.style.width = "68%";
-    }
-}
-
-
-// ============================================
-// DONATION FUNCTIONS
-// ============================================
-
-let selectedDonationAmount = 0;
-
-function selectAmount(amount) {
-    selectedDonationAmount = amount;
-    const buttons = document.querySelectorAll(".amount-btn");
-    buttons.forEach(function (button) {
-        button.classList.remove("selected");
-    });
-    buttons.forEach(function (button) {
-        if (button.textContent.includes(amount)) {
-            button.classList.add("selected");
-        }
-    });
-    document.getElementById("customAmount").value = "";
-}
-
-function saveDonationToHistory(amount, status, caseName) {
-    let donations = getDonations();
-    let donation = {
-        amount: amount,
-        date: new Date().toLocaleString(),
-        status: status || "Pending",
-        case: caseName || document.getElementById("caseTitle")?.textContent || "General Donation",
-        type: "bank_transfer"
-    };
-    donations.push(donation);
-    saveDonations(donations);
-}
-
-function loadDonations() {
-    const historyDiv = document.getElementById("donationHistory");
-    let donations = getDonations();
-    
-    if (donations.length === 0) {
-        historyDiv.innerHTML = `
-            <div class="empty-message">
-                💔 You have not made any donations yet.<br>
-                <span style="font-size:14px;color:#999;">Every donation counts, no matter the size!</span>
-            </div>
-        `;
-        return;
-    }
-    
-    let html = '';
-    let total = 0;
-    let reversed = [...donations].reverse();
-    
-    reversed.forEach(function(donation) {
-        total += donation.amount;
-        let statusClass = donation.status === "Pending" ? "pending" : 
-                         donation.status === "Completed" ? "completed" : "demo";
-        html += `
-            <div class="donation-item">
-                <div class="donation-amount">AED ${donation.amount}</div>
-                <div class="donation-date">📅 ${donation.date}</div>
-                <div class="donation-status ${statusClass}">${donation.status || "Pending"}</div>
-                <div style="font-size:13px;color:#888;margin-top:5px;">${donation.case || 'General Donation'}</div>
-            </div>
-        `;
-    });
-    
-    historyDiv.innerHTML = `
-        <div style="background:#087f5b;color:white;padding:12px;border-radius:10px;margin-bottom:15px;text-align:center;">
-            💰 Total Donated: AED ${total}
-        </div>
-        ${html}
-    `;
-}
-
-function makeDonation() {
-    const custom = document.getElementById("customAmount").value.trim();
-    let amount = selectedDonationAmount;
-
-    if (custom) {
-        amount = Number(custom);
-    }
-
-    if (!amount || amount <= 0) {
-        alert("⚠️ Please select or enter a donation amount.");
-        return;
-    }
-
-    saveDonationToHistory(amount, "Demo Donation");
-
-    alert("❤️ Donation Added!\n\nAmount: AED " + amount + "\nStatus: Demo Donation\n\nYour donation has been saved.");
-
-    selectedDonationAmount = 0;
-    document.querySelectorAll(".amount-btn").forEach(function (button) {
-        button.classList.remove("selected");
-    });
-    document.getElementById("customAmount").value = "";
-
-    showPage("donationsPage");
-    loadDonations();
-}
-
-
-// ============================================
-// BANK TRANSFER FUNCTIONS
-// ============================================
-
-function showBankTransfer() {
-    showPage("bankTransferPage");
-}
-
-function copyIBAN() {
-    const iban = "AE49 0260 0010 1578 3815 601";
-    navigator.clipboard.writeText(iban).then(function() {
-        alert("✅ IBAN copied to clipboard!");
-    }).catch(function() {
-        prompt("Copy this IBAN:", iban);
-    });
-}
-
-function confirmBankTransfer() {
-    const amount = document.getElementById("transferAmount").value.trim();
-    const ref = document.getElementById("transactionRef").value.trim();
-    const name = document.getElementById("transferName").value.trim();
-
-    if (!amount || amount <= 0) {
-        alert("⚠️ Please enter the amount you transferred.");
-        return;
-    }
-
-    if (!ref) {
-        alert("⚠️ Please enter the transaction reference number.");
-        return;
-    }
-
-    if (!name) {
-        alert("⚠️ Please enter your full name.");
-        return;
-    }
-
-    saveDonationToHistory(Number(amount), "Pending");
-
-    alert(
-        "✅ Bank Transfer Confirmed!\n\n" +
-        "Amount: AED " + amount + "\n" +
-        "Reference: " + ref + "\n" +
-        "Name: " + name + "\n\n" +
-        "Your donation is now marked as PENDING.\n" +
-        "We will verify your transfer and confirm it within 24-48 hours."
-    );
-
-    document.getElementById("transferAmount").value = "";
-    document.getElementById("transactionRef").value = "";
-    document.getElementById("transferName").value = "";
-
-    showPage("donationsPage");
-    loadDonations();
-}
-
-
-// ============================================
-// VOLUNTEER FUNCTIONS
-// ============================================
-
-function joinVolunteer() {
-    const name = document.getElementById("volunteerName").value.trim();
-    const phone = document.getElementById("volunteerPhone").value.trim();
-    const help = document.getElementById("volunteerHelp").value.trim();
-
-    if (!name || !phone || !help) {
-        alert("⚠️ Please complete all volunteer fields.");
-        return;
-    }
-
-    let volunteers = getVolunteers();
-    volunteers.push({
-        name: name,
-        phone: phone,
-        help: help,
-        date: new Date().toLocaleString()
-    });
-    saveVolunteers(volunteers);
-
-    alert("🤝 Thank you, " + name + "!\n\nYour volunteer application has been recorded.");
-    
-    document.getElementById("volunteerName").value = "";
-    document.getElementById("volunteerPhone").value = "";
-    document.getElementById("volunteerHelp").value = "";
-}
-
-
-// ============================================
-// ADMIN FUNCTIONS
-// ============================================
-
-function loadAdminData() {
-    let donations = getDonations();
-    let volunteers = getVolunteers();
-    let users = getUsers();
-
-    // Stats
-    let total = donations.reduce((sum, d) => sum + d.amount, 0);
-    let pending = donations.filter(d => d.status === "Pending").length;
-
-    document.getElementById("adminTotalDonations").textContent = donations.length;
-    document.getElementById("adminTotalAmount").textContent = "AED " + total;
-    document.getElementById("adminPendingCount").textContent = pending;
-    document.getElementById("adminVolunteerCount").textContent = volunteers.length;
-
-    // Donations List
-    let donationsHtml = '';
-    if (donations.length === 0) {
-        donationsHtml = '<div class="empty-message">No donations yet.</div>';
-    } else {
-        let reversed = [...donations].reverse();
-        reversed.forEach(function(d, index) {
-            let statusClass = d.status === "Pending" ? "pending" : 
-                             d.status === "Completed" ? "completed" : "demo";
-            let realIndex = donations.length - 1 - index;
-            donationsHtml += `
-                <div class="donation-item">
-                    <div class="donation-amount">AED ${d.amount}</div>
-                    <div class="donation-date">📅 ${d.date}</div>
-                    <div class="donation-status ${statusClass}">${d.status || "Pending"}</div>
-                    <div style="font-size:13px;color:#888;margin-top:5px;">${d.case || 'General Donation'}</div>
-                    ${d.status === "Pending" ? `<button class="verify-btn" onclick="verifyDonation(${realIndex})">✅ Verify</button>` : ''}
-                    <button class="delete-btn" onclick="deleteDonation(${realIndex})">🗑️ Delete</button>
-                </div>
-            `;
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetTab = this.dataset.tab;
+                document.getElementById('login-section').classList.toggle('active', targetTab === 'login');
+                document.getElementById('register-section').classList.toggle('active', targetTab === 'register');
+            });
         });
-    }
-    document.getElementById("adminDonationsList").innerHTML = donationsHtml;
 
-    // Volunteers List
-    let volunteersHtml = '';
-    if (volunteers.length === 0) {
-        volunteersHtml = '<div class="empty-message">No volunteers yet.</div>';
-    } else {
-        let reversed = [...volunteers].reverse();
-        reversed.forEach(function(v) {
-            volunteersHtml += `
-                <div class="donation-item">
-                    <div style="font-weight:bold;">${v.name}</div>
-                    <div style="font-size:14px;color:#666;">📱 ${v.phone}</div>
-                    <div style="font-size:13px;color:#888;margin-top:5px;">📝 ${v.help}</div>
-                    <div style="font-size:12px;color:#999;margin-top:5px;">📅 ${v.date}</div>
-                </div>
-            `;
-        });
-    }
-    document.getElementById("adminVolunteersList").innerHTML = volunteersHtml;
-
-    // Users List
-    let usersHtml = '';
-    if (users.length === 0) {
-        usersHtml = '<div class="empty-message">No users registered yet.</div>';
-    } else {
-        let reversed = [...users].reverse();
-        reversed.forEach(function(u) {
-            usersHtml += `
-                <div class="donation-item">
-                    <div style="font-weight:bold;">${u.name || 'Unknown'}</div>
-                    <div style="font-size:14px;color:#666;">📧 ${u.email}</div>
-                </div>
-            `;
-        });
-    }
-    document.getElementById("adminUsersList").innerHTML = usersHtml;
-}
-
-function verifyDonation(index) {
-    let donations = getDonations();
-    if (donations[index]) {
-        donations[index].status = "Completed";
-        saveDonations(donations);
-        loadAdminData();
-        loadDonations();
-        alert("✅ Donation verified and marked as Completed!");
-    }
-}
-
-function deleteDonation(index) {
-    if (confirm("Are you sure you want to delete this donation?")) {
-        let donations = getDonations();
-        donations.splice(index, 1);
-        saveDonations(donations);
-        loadAdminData();
-        loadDonations();
-        alert("🗑️ Donation deleted.");
-    }
-}
-
-function adminLogout() {
-    if (confirm("Are you sure you want to logout from Admin?")) {
-        document.getElementById("adminDashboard").style.display = "none";
-        document.getElementById("authContainer").style.display = "block";
-        document.getElementById("dashboard").style.display = "none";
-        document.getElementById("adminLoginTab").click();
-        window.scrollTo(0, 0);
-    }
-}
-
-</script>
+        // Initialize
+        loadContent();
+    </script>
 </body>
 </html>
