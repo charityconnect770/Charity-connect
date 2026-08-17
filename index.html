@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CharityConnect · Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>CharityConnect · Give With Trust</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -24,122 +28,6 @@
             margin: 0 auto;
         }
 
-        /* Admin Toggle Button */
-        .admin-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #176b87;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .admin-toggle:hover {
-            background: #0f4d62;
-        }
-
-        /* Admin Panel */
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            z-index: 2000;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .admin-panel.active {
-            display: block;
-        }
-
-        .admin-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1500;
-        }
-
-        .admin-overlay.active {
-            display: block;
-        }
-
-        .admin-panel h2 {
-            color: #176b87;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .admin-input-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .admin-input-group label {
-            font-weight: 600;
-            color: #1f3a4b;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .admin-input-group input,
-        .admin-input-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #dde5ed;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-
-        .admin-input-group textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-
-        .btn-save {
-            background: #176b87;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .btn-close {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        /* Charity Card */
         .charity-card {
             background: white;
             border-radius: 2.5rem;
@@ -178,7 +66,7 @@
         }
 
         .feature-highlight {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             border-radius: 1.8rem;
             padding: 1.2rem 1.5rem;
             margin-top: 1rem;
@@ -257,9 +145,7 @@
             padding: 0.75rem 1rem;
         }
 
-        .input-field input,
-        .input-field select,
-        .input-field textarea {
+        .input-field input {
             flex: 1;
             border: none;
             background: transparent;
@@ -288,6 +174,17 @@
             color: #176b87;
         }
 
+        .bank-host-option div {
+            flex: 1;
+        }
+
+        .bank-host-option span {
+            display: block;
+            font-size: 0.85rem;
+            color: #657786;
+            margin-top: 3px;
+        }
+
         .btn-primary {
             background: #176b87;
             color: white;
@@ -300,211 +197,1137 @@
             margin-top: 0.7rem;
         }
 
-        .content-editable {
-            transition: all 0.3s;
-            border: 2px dashed transparent;
+        .btn-primary:hover {
+            background: #0f5a73;
         }
 
-        .content-editable:hover {
-            border-color: #ffd166;
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .alert {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .alert-success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Admin button */
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #176b87;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
             cursor: pointer;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-toggle:hover {
+            background: #0f4d62;
+        }
+
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            z-index: 2000;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+        }
+
+        .admin-overlay.active {
+            display: block;
+        }
+
+        .admin-panel h2 {
+            color: #176b87;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-input-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .admin-input-group label {
+            font-weight: 600;
+            color: #1f3a4b;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .admin-input-group input,
+        .admin-input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dde5ed;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .admin-input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .btn-save {
+            background: #176b87;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-close {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .logged-user {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background: #eef8fb;
+            border-radius: 12px;
+            color: #176b87;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #176b87;
+            color: #176b87;
+            padding: 7px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .welcome-panel,
+            .form-panel {
+                flex: 1 1 100%;
+            }
+
+            .welcome-panel h1 {
+                font-size: 2rem;
+            }
+
+            .form-panel {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="main-container">
-        <!-- Charity Card -->
-        <div class="charity-card">
-            <!-- Left Panel -->
-            <div class="welcome-panel">
-                <h1>
-                    <i class="fas fa-hands-helping"></i> 
-                    <span id="siteName">CharityConnect</span>
-                </h1>
-                <div class="tagline" id="siteTagline">
-                    Empowering everyone to give & host with trust.
-                </div>
-                <div class="feature-highlight">
-                    <p>
-                        <i class="fas fa-user-plus"></i> 
-                        <span id="feature1">Create your profile – anyone can join.</span>
-                    </p>
-                </div>
-                <div class="feature-highlight">
-                    <p>
-                        <i class="fas fa-university"></i> 
-                        <span id="feature2">Host a bank account – securely link.</span>
-                    </p>
-                </div>
-                <div style="margin-top: 1.2rem; opacity: 0.8; font-size: 0.9rem;" id="securityNote">
-                    <i class="fas fa-shield-alt"></i> 256-bit encryption · transparent reporting
-                </div>
+
+<div class="main-container">
+
+    <div class="charity-card">
+
+        <!-- LEFT SIDE -->
+        <div class="welcome-panel">
+
+            <h1>
+                <i class="fas fa-hands-helping"></i>
+                <span id="siteName">CharityConnect</span>
+            </h1>
+
+            <div class="tagline" id="siteTagline">
+                Empowering everyone to give & host with trust.
             </div>
 
-            <!-- Right Panel -->
-            <div class="form-panel">
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="login">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    <button class="tab-btn" data-tab="register">
-                        <i class="fas fa-user-circle"></i> Create Profile
-                    </button>
-                </div>
-
-                <!-- Login Section -->
-                <div id="login-section" class="form-section active">
-                    <div class="input-group">
-                        <label><i class="fas fa-envelope"></i> Email or Username</label>
-                        <div class="input-field">
-                            <i class="fas fa-at"></i>
-                            <input type="email" placeholder="you@example.org">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label><i class="fas fa-lock"></i> Password</label>
-                        <div class="input-field">
-                            <i class="fas fa-key"></i>
-                            <input type="password" placeholder="••••••••">
-                        </div>
-                    </div>
-                    <button class="btn-primary">Log in to your account</button>
-                </div>
-
-                <!-- Register Section -->
-                <div id="register-section" class="form-section">
-                    <div class="input-group">
-                        <label>Full name *</label>
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="e.g., Alex Morgan">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Email address *</label>
-                        <div class="input-field">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <input type="email" placeholder="you@example.com">
-                        </div>
-                    </div>
-                    <div class="bank-host-option">
-                        <i class="fas fa-university"></i>
-                        <div>
-                            <strong>Host a bank account</strong>
-                            <span>Enable secure fundraising</span>
-                        </div>
-                        <input type="checkbox" checked>
-                    </div>
-                    <button class="btn-primary">Create free profile</button>
-                </div>
+            <div class="feature-highlight">
+                <p>
+                    <i class="fas fa-user-plus"></i>
+                    <span id="feature1">
+                        Create your profile – anyone can join.
+                    </span>
+                </p>
             </div>
+
+            <div class="feature-highlight">
+                <p>
+                    <i class="fas fa-university"></i>
+                    <span id="feature2">
+                        Host a bank account – securely link.
+                    </span>
+                </p>
+            </div>
+
+            <div style="margin-top:1.2rem;opacity:.8;font-size:.9rem;"
+                 id="securityNote">
+
+                <i class="fas fa-shield-alt"></i>
+                Secure authentication · transparent reporting
+
+            </div>
+
         </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="form-panel">
+
+            <div class="tabs">
+
+                <button class="tab-btn active" data-tab="login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                </button>
+
+                <button class="tab-btn" data-tab="register">
+                    <i class="fas fa-user-circle"></i>
+                    Create Profile
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <div id="login-section" class="form-section active">
+
+                <div class="input-group">
+
+                    <label>
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fas fa-at"></i>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.org"
+                            autocomplete="email">
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fas fa-key"></i>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="••••••••"
+                            autocomplete="current-password">
+
+                    </div>
+
+                </div>
+
+
+                <div id="loginAlert" class="alert"></div>
+
+
+                <button
+                    class="btn-primary"
+                    id="loginButton"
+                    onclick="loginUser()">
+
+                    <i class="fas fa-sign-in-alt"></i>
+                    Log in to your account
+
+                </button>
+
+
+                <div id="loggedUser" class="logged-user"></div>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div id="register-section" class="form-section">
+
+                <div class="input-group">
+
+                    <label>
+                        Full name *
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fas fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="e.g., Alex Morgan"
+                            autocomplete="name">
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Email address *
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fas fa-envelope-open-text"></i>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="you@example.com"
+                            autocomplete="email">
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Password * (minimum 6 characters)
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fas fa-key"></i>
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password">
+
+                    </div>
+
+                </div>
+
+
+                <div class="bank-host-option">
+
+                    <i class="fas fa-university"></i>
+
+                    <div>
+                        <strong>Host a bank account</strong>
+
+                        <span>
+                            Enable secure fundraising
+                        </span>
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="hostBank"
+                        checked>
+
+                </div>
+
+
+                <div id="signupAlert" class="alert"></div>
+
+
+                <button
+                    class="btn-primary"
+                    id="signupButton"
+                    onclick="signupUser()">
+
+                    <i class="fas fa-user-plus"></i>
+                    Create free profile
+
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Admin Toggle Button -->
-    <button class="admin-toggle" onclick="toggleAdmin()">
-        <i class="fas fa-user-shield"></i> Admin
+</div>
+
+
+<!-- ADMIN BUTTON -->
+
+<button
+    class="admin-toggle"
+    onclick="toggleAdmin()">
+
+    <i class="fas fa-user-shield"></i>
+    Admin
+
+</button>
+
+
+<div
+    class="admin-overlay"
+    id="adminOverlay"
+    onclick="toggleAdmin()">
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div
+    class="admin-panel"
+    id="adminPanel">
+
+    <h2>
+        <i class="fas fa-edit"></i>
+        Edit Website Content
+    </h2>
+
+
+    <div class="admin-input-group">
+
+        <label>
+            Site Name
+        </label>
+
+        <input
+            type="text"
+            id="editSiteName"
+            placeholder="CharityConnect">
+
+    </div>
+
+
+    <div class="admin-input-group">
+
+        <label>
+            Tagline
+        </label>
+
+        <textarea
+            id="editTagline">
+Empowering everyone to give & host with trust.
+        </textarea>
+
+    </div>
+
+
+    <div class="admin-input-group">
+
+        <label>
+            Feature 1
+        </label>
+
+        <textarea
+            id="editFeature1">
+Create your profile – anyone can join.
+        </textarea>
+
+    </div>
+
+
+    <div class="admin-input-group">
+
+        <label>
+            Feature 2
+        </label>
+
+        <textarea
+            id="editFeature2">
+Host a bank account – securely link.
+        </textarea>
+
+    </div>
+
+
+    <div class="admin-input-group">
+
+        <label>
+            Security Note
+        </label>
+
+        <input
+            type="text"
+            id="editSecurity"
+            value="Secure authentication · transparent reporting">
+
+    </div>
+
+
+    <button
+        class="btn-save"
+        onclick="saveChanges()">
+
+        <i class="fas fa-save"></i>
+        Save Changes
+
     </button>
 
-    <!-- Admin Overlay -->
-    <div class="admin-overlay" id="adminOverlay" onclick="toggleAdmin()"></div>
 
-    <!-- Admin Panel -->
-    <div class="admin-panel" id="adminPanel">
-        <h2><i class="fas fa-edit"></i> Edit Website Content</h2>
-        
-        <div class="admin-input-group">
-            <label>Site Name</label>
-            <input type="text" id="editSiteName" placeholder="CharityConnect">
-        </div>
-        
-        <div class="admin-input-group">
-            <label>Tagline</label>
-            <textarea id="editTagline">Empowering everyone to give & host with trust.</textarea>
-        </div>
-        
-        <div class="admin-input-group">
-            <label>Feature 1</label>
-            <textarea id="editFeature1">Create your profile – anyone can join.</textarea>
-        </div>
-        
-        <div class="admin-input-group">
-            <label>Feature 2</label>
-            <textarea id="editFeature2">Host a bank account – securely link.</textarea>
-        </div>
-        
-        <div class="admin-input-group">
-            <label>Security Note</label>
-            <input type="text" id="editSecurity" value="256-bit encryption · transparent reporting">
-        </div>
-        
-        <button class="btn-save" onclick="saveChanges()">
-            <i class="fas fa-save"></i> Save Changes
-        </button>
-        
-        <button class="btn-close" onclick="toggleAdmin()">
-            <i class="fas fa-times"></i> Close
-        </button>
-    </div>
+    <button
+        class="btn-close"
+        onclick="toggleAdmin()">
 
-    <script>
-        // Load saved content from localStorage
-        function loadContent() {
-            const content = JSON.parse(localStorage.getItem('charityContent')) || {};
-            
-            if (content.siteName) document.getElementById('siteName').textContent = content.siteName;
-            if (content.tagline) document.getElementById('siteTagline').textContent = content.tagline;
-            if (content.feature1) document.getElementById('feature1').textContent = content.feature1;
-            if (content.feature2) document.getElementById('feature2').textContent = content.feature2;
-            if (content.securityNote) document.getElementById('securityNote').innerHTML = '<i class="fas fa-shield-alt"></i> ' + content.securityNote;
-            
-            // Populate admin panel inputs
-            document.getElementById('editSiteName').value = document.getElementById('siteName').textContent;
-            document.getElementById('editTagline').value = document.getElementById('siteTagline').textContent;
-            document.getElementById('editFeature1').value = document.getElementById('feature1').textContent;
-            document.getElementById('editFeature2').value = document.getElementById('feature2').textContent;
-            document.getElementById('editSecurity').value = document.getElementById('securityNote').textContent.replace('🔒 ', '');
+        <i class="fas fa-times"></i>
+        Close
+
+    </button>
+
+</div>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+
+    import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut
+    }
+        from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+
+    /* ==========================================
+       YOUR FIREBASE CONFIGURATION
+       ========================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+        "AIzaSyDK9kA9sinF2MWhDrxoPZbXaxMD9_HHvj8",
+
+        authDomain:
+        "charity-connect-f5491.firebaseapp.com",
+
+        projectId:
+        "charity-connect-f5491",
+
+        storageBucket:
+        "charity-connect-f5491.firebasestorage.app",
+
+        messagingSenderId:
+        "369315357314",
+
+        appId:
+        "1:369315357314:web:d6f411d640f7a1f3f4ca9b",
+
+        measurementId:
+        "G-7MNYJJZK45"
+    };
+
+
+    /* ==========================================
+       START FIREBASE
+       ========================================== */
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    console.log("Firebase initialized successfully.");
+
+
+    /* ==========================================
+       LOGIN
+       ========================================== */
+
+    window.loginUser = async function() {
+
+        const email =
+            document.getElementById("loginEmail").value.trim();
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        const alertDiv =
+            document.getElementById("loginAlert");
+
+        const button =
+            document.getElementById("loginButton");
+
+
+        if (!email || !password) {
+
+            showAlert(
+                alertDiv,
+                "Please enter your email and password.",
+                "error"
+            );
+
+            return;
         }
 
-        // Save changes to localStorage
-        function saveChanges() {
-            const content = {
-                siteName: document.getElementById('editSiteName').value,
-                tagline: document.getElementById('editTagline').value,
-                feature1: document.getElementById('editFeature1').value,
-                feature2: document.getElementById('editFeature2').value,
-                securityNote: document.getElementById('editSecurity').value
-            };
-            
-            localStorage.setItem('charityContent', JSON.stringify(content));
-            loadContent();
-            toggleAdmin();
-            alert('✅ Changes saved successfully!');
+
+        button.disabled = true;
+
+        button.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+
+
+        try {
+
+            const userCredential =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            showAlert(
+                alertDiv,
+                "Login successful! Welcome back.",
+                "success"
+            );
+
+
+            console.log(
+                "Logged in user:",
+                userCredential.user.uid
+            );
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            showAlert(
+                alertDiv,
+                getFirebaseError(error),
+                "error"
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+            button.innerHTML =
+                '<i class="fas fa-sign-in-alt"></i> Log in to your account';
+
         }
 
-        // Toggle admin panel
-        function toggleAdmin() {
-            const panel = document.getElementById('adminPanel');
-            const overlay = document.getElementById('adminOverlay');
-            
-            panel.classList.toggle('active');
-            overlay.classList.toggle('active');
+    };
+
+
+    /* ==========================================
+       CREATE ACCOUNT
+       ========================================== */
+
+    window.signupUser = async function() {
+
+        const name =
+            document.getElementById("signupName").value.trim();
+
+        const email =
+            document.getElementById("signupEmail").value.trim();
+
+        const password =
+            document.getElementById("signupPassword").value;
+
+        const hostBank =
+            document.getElementById("hostBank").checked;
+
+        const alertDiv =
+            document.getElementById("signupAlert");
+
+        const button =
+            document.getElementById("signupButton");
+
+
+        if (!name || !email || !password) {
+
+            showAlert(
+                alertDiv,
+                "Please fill in all required fields.",
+                "error"
+            );
+
+            return;
         }
 
-        // Tab switching
-        document.querySelectorAll('.tab-btn').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                const targetTab = this.dataset.tab;
-                document.getElementById('login-section').classList.toggle('active', targetTab === 'login');
-                document.getElementById('register-section').classList.toggle('active', targetTab === 'register');
-            });
+
+        if (password.length < 6) {
+
+            showAlert(
+                alertDiv,
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        button.disabled = true;
+
+        button.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Creating account...';
+
+
+        try {
+
+            const userCredential =
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            const user =
+                userCredential.user;
+
+
+            /*
+             * For now we store the profile locally.
+             *
+             * Later we will move this information
+             * into Firebase Firestore so it works
+             * across devices.
+             */
+
+            localStorage.setItem(
+                "charityUserProfile",
+                JSON.stringify({
+
+                    uid: user.uid,
+
+                    name: name,
+
+                    email: email,
+
+                    hostBank: hostBank
+
+                })
+            );
+
+
+            showAlert(
+                alertDiv,
+                "Account created successfully! Welcome " + name + ".",
+                "success"
+            );
+
+
+            document.getElementById("signupName").value = "";
+            document.getElementById("signupEmail").value = "";
+            document.getElementById("signupPassword").value = "";
+
+
+            console.log(
+                "New Firebase user:",
+                user.uid
+            );
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            showAlert(
+                alertDiv,
+                getFirebaseError(error),
+                "error"
+            );
+
+        } finally {
+
+            button.disabled = false;
+
+            button.innerHTML =
+                '<i class="fas fa-user-plus"></i> Create free profile';
+
+        }
+
+    };
+
+
+    /* ==========================================
+       AUTH STATE
+       ========================================== */
+
+    onAuthStateChanged(auth, function(user) {
+
+        const loggedUser =
+            document.getElementById("loggedUser");
+
+
+        if (user) {
+
+            loggedUser.style.display = "block";
+
+            loggedUser.innerHTML =
+                "✅ Logged in as " +
+                escapeHtml(user.email) +
+                ' <button class="logout-btn" onclick="logoutUser()">Logout</button>';
+
+        } else {
+
+            loggedUser.style.display = "none";
+
+            loggedUser.innerHTML = "";
+
+        }
+
+    });
+
+
+    /* ==========================================
+       LOGOUT
+       ========================================== */
+
+    window.logoutUser = async function() {
+
+        try {
+
+            await signOut(auth);
+
+            showAlert(
+                document.getElementById("loginAlert"),
+                "You have been logged out.",
+                "success"
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
+    };
+
+
+    /* ==========================================
+       FIREBASE ERROR MESSAGES
+       ========================================== */
+
+    function getFirebaseError(error) {
+
+        switch (error.code) {
+
+            case "auth/invalid-credential":
+                return "Incorrect email or password.";
+
+            case "auth/user-not-found":
+                return "No account was found with this email.";
+
+            case "auth/wrong-password":
+                return "Incorrect password.";
+
+            case "auth/email-already-in-use":
+                return "An account with this email already exists.";
+
+            case "auth/invalid-email":
+                return "Please enter a valid email address.";
+
+            case "auth/weak-password":
+                return "Your password is too weak.";
+
+            case "auth/too-many-requests":
+                return "Too many attempts. Please try again later.";
+
+            case "auth/operation-not-allowed":
+                return "Email/password login is not enabled in Firebase yet.";
+
+            default:
+                return error.message || "Something went wrong.";
+
+        }
+
+    }
+
+
+    /* ==========================================
+       ALERT
+       ========================================== */
+
+    function showAlert(element, message, type) {
+
+        element.textContent = message;
+
+        element.className =
+            "alert " +
+            (type === "success"
+                ? "alert-success"
+                : "alert-error");
+
+    }
+
+
+    /* ==========================================
+       BASIC HTML ESCAPING
+       ========================================== */
+
+    function escapeHtml(text) {
+
+        const div = document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+</script>
+
+
+<!-- WEBSITE CONTENT / ADMIN -->
+
+<script>
+
+    function loadContent() {
+
+        let content = {};
+
+        try {
+
+            content =
+                JSON.parse(
+                    localStorage.getItem("charityContent")
+                ) || {};
+
+        } catch (error) {
+
+            console.error(
+                "Could not read saved website content.",
+                error
+            );
+
+        }
+
+
+        if (content.siteName)
+            document.getElementById("siteName").textContent =
+                content.siteName;
+
+
+        if (content.tagline)
+            document.getElementById("siteTagline").textContent =
+                content.tagline;
+
+
+        if (content.feature1)
+            document.getElementById("feature1").textContent =
+                content.feature1;
+
+
+        if (content.feature2)
+            document.getElementById("feature2").textContent =
+                content.feature2;
+
+
+        if (content.securityNote)
+            document.getElementById("securityNote").innerHTML =
+                '<i class="fas fa-shield-alt"></i> ' +
+                content.securityNote;
+
+
+        document.getElementById("editSiteName").value =
+            document.getElementById("siteName").textContent;
+
+
+        document.getElementById("editTagline").value =
+            document.getElementById("siteTagline").textContent;
+
+
+        document.getElementById("editFeature1").value =
+            document.getElementById("feature1").textContent;
+
+
+        document.getElementById("editFeature2").value =
+            document.getElementById("feature2").textContent;
+
+
+        document.getElementById("editSecurity").value =
+            document.getElementById("securityNote").textContent.trim();
+
+    }
+
+
+    function saveChanges() {
+
+        const content = {
+
+            siteName:
+                document.getElementById("editSiteName").value,
+
+            tagline:
+                document.getElementById("editTagline").value,
+
+            feature1:
+                document.getElementById("editFeature1").value,
+
+            feature2:
+                document.getElementById("editFeature2").value,
+
+            securityNote:
+                document.getElementById("editSecurity").value
+
+        };
+
+
+        localStorage.setItem(
+            "charityContent",
+            JSON.stringify(content)
+        );
+
+
+        loadContent();
+
+        toggleAdmin();
+
+
+        alert(
+            "Changes saved on this device."
+        );
+
+    }
+
+
+    function toggleAdmin() {
+
+        const panel =
+            document.getElementById("adminPanel");
+
+        const overlay =
+            document.getElementById("adminOverlay");
+
+
+        panel.classList.toggle("active");
+
+        overlay.classList.toggle("active");
+
+    }
+
+
+    /* ==========================================
+       LOGIN / REGISTER TABS
+       ========================================== */
+
+    document
+        .querySelectorAll(".tab-btn")
+        .forEach(function(tab) {
+
+            tab.addEventListener(
+                "click",
+                function() {
+
+                    document
+                        .querySelectorAll(".tab-btn")
+                        .forEach(function(t) {
+
+                            t.classList.remove("active");
+
+                        });
+
+
+                    this.classList.add("active");
+
+
+                    const targetTab =
+                        this.dataset.tab;
+
+
+                    document
+                        .getElementById("login-section")
+                        .classList.toggle(
+                            "active",
+                            targetTab === "login"
+                        );
+
+
+                    document
+                        .getElementById("register-section")
+                        .classList.toggle(
+                            "active",
+                            targetTab === "register"
+                        );
+
+                }
+            );
+
         });
 
-        // Initialize
-        loadContent();
-    </script>
+
+    /* ==========================================
+       START
+       ========================================== */
+
+    loadContent();
+
+</script>
+
 </body>
 </html>
