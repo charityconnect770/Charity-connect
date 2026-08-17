@@ -3,1352 +3,1657 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CharityConnect</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Roboto,system-ui,sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(145deg,#f7f9fc,#eef2f7);
-    padding: 20px;
-    color: #1f3a4b;
+body{
+    min-height:100vh;
+    background:linear-gradient(145deg,#f7f9fc,#eef2f7);
+    padding:15px;
+    color:#1f3a4b;
 }
 
-button {
-    cursor: pointer;
+button{cursor:pointer}
+.hidden{display:none!important}
+
+.main-container,
+.dashboard{
+    max-width:1200px;
+    margin:auto;
 }
 
-.hidden {
-    display: none !important;
+.charity-card{
+    background:white;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 30px 50px rgba(0,20,30,.12);
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
-/* =========================
-   LOGIN PAGE
-========================= */
-
-.main-container {
-    max-width: 1200px;
-    margin: auto;
+.welcome-panel{
+    flex:1 1 40%;
+    background:linear-gradient(160deg,#1e4b5e,#176b87);
+    color:white;
+    padding:45px 35px;
 }
 
-.charity-card {
-    background: white;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 30px 50px rgba(0,20,30,.12);
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.welcome-panel h1{
+    font-size:40px;
+    margin-bottom:15px;
 }
 
-.welcome-panel {
-    flex: 1 1 40%;
-    background: linear-gradient(160deg,#1e4b5e,#176b87);
-    color: white;
-    padding: 45px 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.welcome-panel h1 i{
+    color:#ffd166;
 }
 
-.welcome-panel h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
+.tagline{
+    font-size:18px;
+    opacity:.9;
+    margin-bottom:20px;
 }
 
-.welcome-panel h1 i {
-    color: #ffd166;
+.feature-highlight{
+    background:rgba(255,255,255,.1);
+    border-radius:22px;
+    padding:17px;
+    margin-top:15px;
 }
 
-.tagline {
-    font-size: 18px;
-    opacity: .9;
-    margin-bottom: 20px;
+.feature-highlight p{
+    display:flex;
+    gap:12px;
+    align-items:center;
 }
 
-.feature-highlight {
-    background: rgba(255,255,255,.1);
-    border-radius: 25px;
-    padding: 18px;
-    margin-top: 15px;
+.feature-highlight i{
+    color:#ffe5a3;
+    font-size:23px;
 }
 
-.feature-highlight p {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+.form-panel{
+    flex:1 1 60%;
+    padding:40px;
 }
 
-.feature-highlight i {
-    color: #ffe5a3;
-    font-size: 23px;
+.tabs{
+    display:flex;
+    gap:25px;
+    border-bottom:1px solid #ddd;
+    margin-bottom:25px;
 }
 
-.form-panel {
-    flex: 1 1 60%;
-    padding: 40px;
+.tab-btn{
+    border:none;
+    background:none;
+    padding:10px 3px;
+    font-size:18px;
+    font-weight:600;
+    color:#6b7b8c;
 }
 
-.tabs {
-    display: flex;
-    gap: 25px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 25px;
+.tab-btn.active{
+    color:#176b87;
+    border-bottom:3px solid #176b87;
 }
 
-.tab-btn {
-    border: none;
-    background: none;
-    padding: 10px 3px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #6b7b8c;
+.form-section{
+    display:none;
+    flex-direction:column;
+    gap:16px;
 }
 
-.tab-btn.active {
-    color: #176b87;
-    border-bottom: 3px solid #176b87;
+.form-section.active{
+    display:flex;
 }
 
-.form-section {
-    display: none;
-    flex-direction: column;
-    gap: 16px;
+.input-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
 }
 
-.form-section.active {
-    display: flex;
+.input-group label{
+    font-weight:600;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.input-field{
+    display:flex;
+    align-items:center;
+    background:#f8fafd;
+    border:1.5px solid #dde5ed;
+    border-radius:16px;
+    padding:12px 15px;
 }
 
-.input-group label {
-    font-weight: 600;
+.input-field i{
+    margin-right:12px;
+    color:#56748c;
 }
 
-.input-field {
-    display: flex;
-    align-items: center;
-    background: #f8fafd;
-    border: 1.5px solid #dde5ed;
-    border-radius: 16px;
-    padding: 12px 15px;
+.input-field input,
+.input-field textarea,
+.input-field select{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:16px;
 }
 
-.input-field i {
-    margin-right: 12px;
-    color: #56748c;
+.input-field textarea{
+    min-height:130px;
+    resize:vertical;
 }
 
-.input-field input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 16px;
+.btn-primary{
+    border:none;
+    background:#176b87;
+    color:white;
+    padding:14px 20px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:700;
+    margin-top:8px;
 }
 
-.btn-primary {
-    border: none;
-    background: #176b87;
-    color: white;
-    padding: 14px 20px;
-    border-radius: 30px;
-    font-size: 17px;
-    font-weight: 700;
-    margin-top: 8px;
+.btn-primary:hover{
+    background:#0f5a73;
 }
 
-.btn-primary:hover {
-    background: #0f5a73;
+.alert{
+    padding:12px;
+    border-radius:10px;
+    display:none;
 }
 
-.alert {
-    padding: 12px;
-    border-radius: 10px;
-    display: none;
+.alert-success{
+    display:block;
+    background:#d4edda;
+    color:#155724;
 }
 
-.alert-success {
-    display: block;
-    background: #d4edda;
-    color: #155724;
+.alert-error{
+    display:block;
+    background:#f8d7da;
+    color:#721c24;
 }
 
-.alert-error {
-    display: block;
-    background: #f8d7da;
-    color: #721c24;
+.bank-host-option{
+    background:#f0f6fa;
+    border-left:4px solid #176b87;
+    border-radius:15px;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.bank-host-option {
-    background: #f0f6fa;
-    border-left: 4px solid #176b87;
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.bank-host-option div{
+    flex:1;
 }
 
-.bank-host-option div {
-    flex: 1;
+.bank-host-option span{
+    display:block;
+    font-size:13px;
+    color:#657786;
 }
 
-.bank-host-option span {
-    display: block;
-    font-size: 13px;
-    color: #657786;
+/* DASHBOARD */
+
+.dashboard-header{
+    background:linear-gradient(135deg,#1e4b5e,#176b87);
+    color:white;
+    padding:30px;
+    border-radius:30px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
 }
 
-/* =========================
-   DASHBOARD
-========================= */
-
-.dashboard {
-    max-width: 1200px;
-    margin: auto;
+.dashboard-header h1{
+    font-size:30px;
 }
 
-.dashboard-header {
-    background: linear-gradient(135deg,#1e4b5e,#176b87);
-    color: white;
-    padding: 30px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+.dashboard-header p{
+    margin-top:6px;
+    opacity:.85;
 }
 
-.dashboard-header h1 {
-    font-size: 30px;
+.logout-btn{
+    border:1px solid rgba(255,255,255,.6);
+    background:transparent;
+    color:white;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:600;
 }
 
-.dashboard-header p {
-    margin-top: 6px;
-    opacity: .85;
+.profile-card{
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,20,30,.08);
 }
 
-.logout-btn {
-    border: 1px solid rgba(255,255,255,.6);
-    background: transparent;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-weight: 600;
+.profile-card h2{
+    color:#176b87;
+    margin-bottom:15px;
 }
 
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 18px;
+.profile-info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
-.dashboard-card {
-    background: white;
-    border-radius: 22px;
-    padding: 25px;
-    min-height: 150px;
-    box-shadow: 0 10px 30px rgba(0,20,30,.08);
-    transition: .2s;
+.profile-info div{
+    background:#f7f9fc;
+    padding:14px;
+    border-radius:12px;
 }
 
-.dashboard-card:hover {
-    transform: translateY(-3px);
+.profile-info strong{
+    display:block;
+    font-size:12px;
+    color:#6b7b8c;
+    margin-bottom:4px;
 }
 
-.dashboard-card i {
-    font-size: 30px;
-    color: #176b87;
-    margin-bottom: 15px;
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:25px;
 }
 
-.dashboard-card h3 {
-    margin-bottom: 7px;
+.dashboard-card{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    min-height:150px;
+    box-shadow:0 10px 30px rgba(0,20,30,.08);
+    transition:.2s;
 }
 
-.dashboard-card p {
-    color: #6b7b8c;
-    font-size: 14px;
+.dashboard-card:hover{
+    transform:translateY(-3px);
 }
 
-.profile-card {
-    background: white;
-    border-radius: 25px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0,20,30,.08);
+.dashboard-card i{
+    font-size:30px;
+    color:#176b87;
+    margin-bottom:15px;
 }
 
-.profile-card h2 {
-    color: #176b87;
-    margin-bottom: 15px;
+.dashboard-card h3{
+    margin-bottom:7px;
 }
 
-.profile-info {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 12px;
+.dashboard-card p{
+    color:#6b7b8c;
+    font-size:14px;
 }
 
-.profile-info div {
-    background: #f7f9fc;
-    padding: 14px;
-    border-radius: 12px;
+/* PAGES */
+
+.app-page{
+    background:white;
+    border-radius:28px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,20,30,.08);
 }
 
-.profile-info strong {
-    display: block;
-    font-size: 12px;
-    color: #6b7b8c;
-    margin-bottom: 4px;
+.page-title{
+    color:#176b87;
+    margin-bottom:20px;
 }
 
-@media(max-width:800px) {
+.page-title i{
+    margin-right:8px;
+}
 
-    .dashboard-grid {
-        grid-template-columns: repeat(2,1fr);
+.back-btn{
+    border:none;
+    background:#eef4f7;
+    color:#176b87;
+    padding:10px 18px;
+    border-radius:20px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.fundraiser-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.fundraiser-card{
+    border:1px solid #e1e8ee;
+    border-radius:20px;
+    padding:20px;
+    background:#fbfcfd;
+}
+
+.fundraiser-card h3{
+    color:#176b87;
+    margin-bottom:10px;
+}
+
+.fundraiser-card p{
+    color:#617180;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.fundraiser-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:15px;
+}
+
+.badge{
+    background:#e8f3f6;
+    color:#176b87;
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.delete-btn{
+    border:none;
+    background:#e74c3c;
+    color:white;
+    padding:9px 15px;
+    border-radius:20px;
+    font-weight:600;
+}
+
+.empty-message{
+    text-align:center;
+    padding:30px;
+    color:#71808c;
+}
+
+@media(max-width:800px){
+    .dashboard-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
+    .fundraiser-list{
+        grid-template-columns:1fr;
+    }
 }
 
-@media(max-width:600px) {
-
-    body {
-        padding: 10px;
+@media(max-width:600px){
+    body{
+        padding:10px;
     }
 
     .welcome-panel,
-    .form-panel {
-        flex: 1 1 100%;
+    .form-panel{
+        flex:1 1 100%;
     }
 
-    .welcome-panel h1 {
-        font-size: 32px;
+    .welcome-panel h1{
+        font-size:32px;
     }
 
-    .form-panel {
-        padding: 25px;
+    .form-panel{
+        padding:25px;
     }
 
-    .dashboard-header {
-        flex-direction: column;
-        align-items: flex-start;
+    .dashboard-header{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    .dashboard-grid{
+        grid-template-columns:1fr;
     }
 
-    .profile-info {
-        grid-template-columns: 1fr;
+    .profile-info{
+        grid-template-columns:1fr;
     }
 
+    .app-page{
+        padding:20px;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
-
-<!-- =====================================================
-     LOGIN / REGISTER
-===================================================== -->
+<!-- ================= LOGIN / REGISTER ================= -->
 
 <div id="authPage" class="main-container">
 
-    <div class="charity-card">
-
-        <div class="welcome-panel">
-
-            <h1>
-                <i class="fas fa-hands-helping"></i>
-                CharityConnect
-            </h1>
-
-            <div class="tagline">
-                Empowering everyone to give & host with trust.
-            </div>
-
-            <div class="feature-highlight">
-                <p>
-                    <i class="fas fa-user-plus"></i>
-                    Create your profile – anyone can join.
-                </p>
-            </div>
-
-            <div class="feature-highlight">
-                <p>
-                    <i class="fas fa-heart"></i>
-                    Give help where it matters most.
-                </p>
-            </div>
-
-            <div class="feature-highlight">
-                <p>
-                    <i class="fas fa-shield-alt"></i>
-                    Secure authentication and transparent reporting.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="form-panel">
-
-            <div class="tabs">
-
-                <button
-                    class="tab-btn active"
-                    data-tab="login">
-
-                    <i class="fas fa-sign-in-alt"></i>
-                    Login
-
-                </button>
-
-                <button
-                    class="tab-btn"
-                    data-tab="register">
-
-                    <i class="fas fa-user-circle"></i>
-                    Create Profile
-
-                </button>
-
-            </div>
-
-
-            <!-- LOGIN -->
-
-            <div
-                id="login-section"
-                class="form-section active">
-
-                <div class="input-group">
-
-                    <label>Email</label>
-
-                    <div class="input-field">
-
-                        <i class="fas fa-envelope"></i>
-
-                        <input
-                            id="loginEmail"
-                            type="email"
-                            placeholder="you@example.com">
-
-                    </div>
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label>Password</label>
-
-                    <div class="input-field">
-
-                        <i class="fas fa-lock"></i>
-
-                        <input
-                            id="loginPassword"
-                            type="password"
-                            placeholder="Password">
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    id="loginAlert"
-                    class="alert">
-                </div>
-
-
-                <button
-                    id="loginButton"
-                    class="btn-primary"
-                    onclick="loginUser()">
-
-                    <i class="fas fa-sign-in-alt"></i>
-                    Log in to your account
-
-                </button>
-
-            </div>
-
-
-            <!-- REGISTER -->
-
-            <div
-                id="register-section"
-                class="form-section">
-
-                <div class="input-group">
-
-                    <label>Full name *</label>
-
-                    <div class="input-field">
-
-                        <i class="fas fa-user"></i>
-
-                        <input
-                            id="signupName"
-                            type="text"
-                            placeholder="Your full name">
-
-                    </div>
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label>Email address *</label>
-
-                    <div class="input-field">
-
-                        <i class="fas fa-envelope"></i>
-
-                        <input
-                            id="signupEmail"
-                            type="email"
-                            placeholder="you@example.com">
-
-                    </div>
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label>Password *</label>
-
-                    <div class="input-field">
-
-                        <i class="fas fa-key"></i>
-
-                        <input
-                            id="signupPassword"
-                            type="password"
-                            placeholder="Minimum 6 characters">
-
-                    </div>
-
-                </div>
-
-
-                <div class="bank-host-option">
-
-                    <i class="fas fa-university"></i>
-
-                    <div>
-
-                        <strong>
-                            Host a bank account
-                        </strong>
-
-                        <span>
-                            Enable secure fundraising
-                        </span>
-
-                    </div>
-
-                    <input
-                        type="checkbox"
-                        id="hostBank"
-                        checked>
-
-                </div>
-
-
-                <div
-                    id="signupAlert"
-                    class="alert">
-                </div>
-
-
-                <button
-                    id="signupButton"
-                    class="btn-primary"
-                    onclick="signupUser()">
-
-                    <i class="fas fa-user-plus"></i>
-                    Create free profile
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+<div class="charity-card">
+
+<div class="welcome-panel">
+
+<h1>
+<i class="fas fa-hands-helping"></i>
+CharityConnect
+</h1>
+
+<div class="tagline">
+Empowering everyone to give & host with trust.
+</div>
+
+<div class="feature-highlight">
+<p>
+<i class="fas fa-user-plus"></i>
+Create your profile – anyone can join.
+</p>
+</div>
+
+<div class="feature-highlight">
+<p>
+<i class="fas fa-heart"></i>
+Give help where it matters most.
+</p>
+</div>
+
+<div class="feature-highlight">
+<p>
+<i class="fas fa-shield-alt"></i>
+Secure authentication and transparent reporting.
+</p>
+</div>
 
 </div>
 
+<div class="form-panel">
 
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
+<div class="tabs">
+
+<button class="tab-btn active" data-tab="login">
+<i class="fas fa-sign-in-alt"></i>
+Login
+</button>
+
+<button class="tab-btn" data-tab="register">
+<i class="fas fa-user-circle"></i>
+Create Profile
+</button>
+
+</div>
+
+<!-- LOGIN -->
+
+<div id="login-section" class="form-section active">
+
+<div class="input-group">
+<label>Email</label>
+
+<div class="input-field">
+<i class="fas fa-envelope"></i>
+<input id="loginEmail" type="email" placeholder="you@example.com">
+</div>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+
+<div class="input-field">
+<i class="fas fa-lock"></i>
+<input id="loginPassword" type="password" placeholder="Password">
+</div>
+</div>
+
+<div id="loginAlert" class="alert"></div>
+
+<button id="loginButton" class="btn-primary" onclick="loginUser()">
+<i class="fas fa-sign-in-alt"></i>
+Log in to your account
+</button>
+
+</div>
+
+<!-- REGISTER -->
+
+<div id="register-section" class="form-section">
+
+<div class="input-group">
+<label>Full name *</label>
+
+<div class="input-field">
+<i class="fas fa-user"></i>
+<input id="signupName" type="text" placeholder="Your full name">
+</div>
+</div>
+
+<div class="input-group">
+<label>Email address *</label>
+
+<div class="input-field">
+<i class="fas fa-envelope"></i>
+<input id="signupEmail" type="email" placeholder="you@example.com">
+</div>
+</div>
+
+<div class="input-group">
+<label>Password *</label>
+
+<div class="input-field">
+<i class="fas fa-key"></i>
+<input id="signupPassword" type="password" placeholder="Minimum 6 characters">
+</div>
+</div>
+
+<div class="bank-host-option">
+
+<i class="fas fa-university"></i>
+
+<div>
+<strong>Host a bank account</strong>
+<span>Enable secure fundraising</span>
+</div>
+
+<input type="checkbox" id="hostBank" checked>
+
+</div>
+
+<div id="signupAlert" class="alert"></div>
+
+<button id="signupButton" class="btn-primary" onclick="signupUser()">
+<i class="fas fa-user-plus"></i>
+Create free profile
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ================= DASHBOARD ================= -->
 
 <div id="dashboardPage" class="dashboard hidden">
 
-
-    <div class="dashboard-header">
-
-        <div>
-
-            <h1>
-                Welcome, <span id="dashboardName">Friend</span> 👋
-            </h1>
-
-            <p>
-                Welcome to your CharityConnect dashboard.
-            </p>
-
-        </div>
-
-
-        <button
-            class="logout-btn"
-            onclick="logoutUser()">
-
-            <i class="fas fa-sign-out-alt"></i>
-            Logout
-
-        </button>
-
-    </div>
-
-
-    <!-- PROFILE -->
-
-    <div class="profile-card">
-
-        <h2>
-            <i class="fas fa-user-circle"></i>
-            My Profile
-        </h2>
-
-
-        <div class="profile-info">
-
-            <div>
-
-                <strong>FULL NAME</strong>
-
-                <span id="profileName">
-                    Loading...
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>EMAIL</strong>
-
-                <span id="profileEmail">
-                    Loading...
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>ACCOUNT TYPE</strong>
-
-                <span>
-                    CharityConnect Member
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>FUNDRAISING</strong>
-
-                <span id="profileHostBank">
-                    Enabled
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- DASHBOARD CARDS -->
-
-    <div class="dashboard-grid">
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('Donate')">
-
-            <i class="fas fa-heart"></i>
-
-            <h3>Donate</h3>
-
-            <p>
-                Support a verified fundraising campaign.
-            </p>
-
-        </div>
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('Create Fundraiser')">
-
-            <i class="fas fa-hand-holding-heart"></i>
-
-            <h3>Create Fundraiser</h3>
-
-            <p>
-                Create a campaign and ask for support.
-            </p>
-
-        </div>
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('My Donations')">
-
-            <i class="fas fa-chart-line"></i>
-
-            <h3>My Donations</h3>
-
-            <p>
-                Track your charitable contributions.
-            </p>
-
-        </div>
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('My Fundraisers')">
-
-            <i class="fas fa-list"></i>
-
-            <h3>My Fundraisers</h3>
-
-            <p>
-                Manage your fundraising campaigns.
-            </p>
-
-        </div>
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('Notifications')">
-
-            <i class="fas fa-bell"></i>
-
-            <h3>Notifications</h3>
-
-            <p>
-                View updates from CharityConnect.
-            </p>
-
-        </div>
-
-
-        <div
-            class="dashboard-card"
-            onclick="dashboardComingSoon('Settings')">
-
-            <i class="fas fa-cog"></i>
-
-            <h3>Settings</h3>
-
-            <p>
-                Manage your account settings.
-            </p>
-
-        </div>
-
-
-    </div>
+<div class="dashboard-header">
+
+<div>
+<h1>
+Welcome, <span id="dashboardName">Friend</span> 👋
+</h1>
+
+<p>
+Welcome to your CharityConnect dashboard.
+</p>
+</div>
+
+<button class="logout-btn" onclick="logoutUser()">
+<i class="fas fa-sign-out-alt"></i>
+Logout
+</button>
+
+</div>
+
+<!-- PROFILE -->
+
+<div class="profile-card">
+
+<h2>
+<i class="fas fa-user-circle"></i>
+My Profile
+</h2>
+
+<div class="profile-info">
+
+<div>
+<strong>FULL NAME</strong>
+<span id="profileName">Loading...</span>
+</div>
+
+<div>
+<strong>EMAIL</strong>
+<span id="profileEmail">Loading...</span>
+</div>
+
+<div>
+<strong>ACCOUNT TYPE</strong>
+<span>CharityConnect Member</span>
+</div>
+
+<div>
+<strong>FUNDRAISING</strong>
+<span id="profileHostBank">Enabled</span>
+</div>
+
+</div>
+</div>
+
+
+<!-- DASHBOARD BUTTONS -->
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card" onclick="openPage('createFundraiserPage')">
+<i class="fas fa-hand-holding-heart"></i>
+<h3>Create Fundraiser</h3>
+<p>Create a campaign and ask for support.</p>
+</div>
+
+<div class="dashboard-card" onclick="openPage('myFundraisersPage'); loadMyFundraisers()">
+<i class="fas fa-list"></i>
+<h3>My Fundraisers</h3>
+<p>View and manage your campaigns.</p>
+</div>
+
+<div class="dashboard-card" onclick="dashboardComingSoon('Donate')">
+<i class="fas fa-heart"></i>
+<h3>Donate</h3>
+<p>Support a verified fundraising campaign.</p>
+</div>
+
+<div class="dashboard-card" onclick="dashboardComingSoon('My Donations')">
+<i class="fas fa-chart-line"></i>
+<h3>My Donations</h3>
+<p>Track your charitable contributions.</p>
+</div>
+
+<div class="dashboard-card" onclick="dashboardComingSoon('Notifications')">
+<i class="fas fa-bell"></i>
+<h3>Notifications</h3>
+<p>View CharityConnect updates.</p>
+</div>
+
+<div class="dashboard-card" onclick="dashboardComingSoon('Settings')">
+<i class="fas fa-cog"></i>
+<h3>Settings</h3>
+<p>Manage your account settings.</p>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
+<!-- CREATE FUNDRAISER -->
+
+<div id="createFundraiserPage" class="app-page hidden">
+
+<button class="back-btn" onclick="closePages()">
+<i class="fas fa-arrow-left"></i>
+Back to Dashboard
+</button>
+
+<h2 class="page-title">
+<i class="fas fa-hand-holding-heart"></i>
+Create Fundraiser
+</h2>
+
+<div class="input-group">
+<label>Fundraiser title *</label>
+
+<div class="input-field">
+<i class="fas fa-heading"></i>
+<input id="fundraiserTitle"
+type="text"
+placeholder="Example: Help a family build a safe home">
+</div>
+</div>
+
+<br>
+
+<div class="input-group">
+<label>Category *</label>
+
+<div class="input-field">
+<i class="fas fa-layer-group"></i>
+
+<select id="fundraiserCategory">
+<option value="Medical">Medical</option>
+<option value="Emergency">Emergency</option>
+<option value="Housing">Housing</option>
+<option value="Education">Education</option>
+<option value="Food">Food</option>
+<option value="Disability">Disability</option>
+<option value="Other">Other</option>
+</select>
+
+</div>
+</div>
+
+<br>
+
+<div class="input-group">
+<label>Amount needed (AED) *</label>
+
+<div class="input-field">
+<i class="fas fa-money-bill-wave"></i>
+
+<input id="fundraiserAmount"
+type="number"
+min="1"
+placeholder="Example: 50000">
+</div>
+</div>
+
+<br>
+
+<div class="input-group">
+<label>Country / Location *</label>
+
+<div class="input-field">
+<i class="fas fa-location-dot"></i>
+
+<input id="fundraiserLocation"
+type="text"
+placeholder="Example: Kohat, Pakistan">
+</div>
+</div>
+
+<br>
+
+<div class="input-group">
+<label>Tell your story *</label>
+
+<div class="input-field">
+<i class="fas fa-align-left"></i>
+
+<textarea
+id="fundraiserStory"
+placeholder="Explain who needs help, why the money is needed, and how the funds will be used."></textarea>
+
+</div>
+</div>
+
+<div id="fundraiserAlert" class="alert"></div>
+
+<button
+id="createFundraiserButton"
+class="btn-primary"
+onclick="createFundraiser()">
+
+<i class="fas fa-plus-circle"></i>
+Publish Fundraiser
+
+</button>
+
+</div>
+
+
+<!-- MY FUNDRAISERS -->
+
+<div id="myFundraisersPage" class="app-page hidden">
+
+<button class="back-btn" onclick="closePages()">
+<i class="fas fa-arrow-left"></i>
+Back to Dashboard
+</button>
+
+<h2 class="page-title">
+<i class="fas fa-list"></i>
+My Fundraisers
+</h2>
+
+<div id="fundraiserList" class="fundraiser-list">
+<div class="empty-message">
+Loading your fundraisers...
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
-
 import {
-    initializeApp
+initializeApp
 }
 from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 
-
 import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
+getAuth,
+signInWithEmailAndPassword,
+createUserWithEmailAndPassword,
+onAuthStateChanged,
+signOut
 }
 from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
-
 import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc,
-    serverTimestamp
+getFirestore,
+doc,
+setDoc,
+getDoc,
+collection,
+addDoc,
+query,
+where,
+getDocs,
+deleteDoc,
+serverTimestamp,
+orderBy
 }
 from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 
-/* =====================================================
-   FIREBASE CONFIGURATION
-===================================================== */
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyDK9kA9sinF2MWhDrxoPZbXaxMD9_HHvj8",
+apiKey:
+"AIzaSyDK9kA9sinF2MWhDrxoPZbXaxMD9_HHvj8",
 
-    authDomain:
-    "charity-connect-f5491.firebaseapp.com",
+authDomain:
+"charity-connect-f5491.firebaseapp.com",
 
-    projectId:
-    "charity-connect-f5491",
+projectId:
+"charity-connect-f5491",
 
-    storageBucket:
-    "charity-connect-f5491.firebasestorage.app",
+storageBucket:
+"charity-connect-f5491.firebasestorage.app",
 
-    messagingSenderId:
-    "369315357314",
+messagingSenderId:
+"369315357314",
 
-    appId:
-    "1:369315357314:web:d6f411d640f7a1f3f4ca9b",
+appId:
+"1:369315357314:web:d6f411d640f7a1f3f4ca9b",
 
-    measurementId:
-    "G-7MNYJJZK45"
+measurementId:
+"G-7MNYJJZK45"
 
 };
 
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
 const app =
-    initializeApp(firebaseConfig);
-
+initializeApp(firebaseConfig);
 
 const auth =
-    getAuth(app);
-
+getAuth(app);
 
 const db =
-    getFirestore(app);
+getFirestore(app);
+
+console.log("CharityConnect Firebase connected");
 
 
-console.log("Firebase + Firestore connected");
+/* LOGIN */
 
+window.loginUser = async function(){
 
-/* =====================================================
-   LOGIN
-===================================================== */
+const email =
+document.getElementById("loginEmail").value.trim();
 
-window.loginUser = async function() {
+const password =
+document.getElementById("loginPassword").value;
 
-    const email =
-        document.getElementById("loginEmail").value.trim();
+const alertBox =
+document.getElementById("loginAlert");
 
-    const password =
-        document.getElementById("loginPassword").value;
+const button =
+document.getElementById("loginButton");
 
-    const alertBox =
-        document.getElementById("loginAlert");
+if(!email || !password){
 
-    const button =
-        document.getElementById("loginButton");
+showAlert(
+alertBox,
+"Please enter your email and password.",
+"error"
+);
 
+return;
+}
 
-    if (!email || !password) {
+button.disabled=true;
 
-        showAlert(
-            alertBox,
-            "Please enter your email and password.",
-            "error"
-        );
+button.innerHTML =
+'<i class="fas fa-spinner fa-spin"></i> Logging in...';
 
-        return;
+try{
 
-    }
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
+}catch(error){
 
-    button.disabled = true;
+console.error(error);
 
-    button.innerHTML =
-        '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+showAlert(
+alertBox,
+firebaseError(error),
+"error"
+);
 
+button.disabled=false;
 
-    try {
+button.innerHTML =
+'<i class="fas fa-sign-in-alt"></i> Log in to your account';
 
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-
-
-        showAlert(
-            alertBox,
-            "Login successful!",
-            "success"
-        );
-
-
-    } catch(error) {
-
-        console.error(error);
-
-        showAlert(
-            alertBox,
-            firebaseError(error),
-            "error"
-        );
-
-
-        button.disabled = false;
-
-        button.innerHTML =
-            '<i class="fas fa-sign-in-alt"></i> Log in to your account';
-
-    }
+}
 
 };
 
 
-/* =====================================================
-   REGISTER
-===================================================== */
+/* REGISTER */
 
-window.signupUser = async function() {
+window.signupUser = async function(){
 
-    const name =
-        document.getElementById("signupName").value.trim();
+const name =
+document.getElementById("signupName").value.trim();
 
-    const email =
-        document.getElementById("signupEmail").value.trim();
+const email =
+document.getElementById("signupEmail").value.trim();
 
-    const password =
-        document.getElementById("signupPassword").value;
+const password =
+document.getElementById("signupPassword").value;
 
-    const hostBank =
-        document.getElementById("hostBank").checked;
+const hostBank =
+document.getElementById("hostBank").checked;
 
-    const alertBox =
-        document.getElementById("signupAlert");
+const alertBox =
+document.getElementById("signupAlert");
 
-    const button =
-        document.getElementById("signupButton");
+const button =
+document.getElementById("signupButton");
 
+if(!name || !email || !password){
 
-    if (!name || !email || !password) {
+showAlert(
+alertBox,
+"Please fill in all required fields.",
+"error"
+);
 
-        showAlert(
-            alertBox,
-            "Please fill in all required fields.",
-            "error"
-        );
+return;
+}
 
-        return;
+if(password.length<6){
 
-    }
+showAlert(
+alertBox,
+"Password must contain at least 6 characters.",
+"error"
+);
 
+return;
+}
 
-    if (password.length < 6) {
+button.disabled=true;
 
-        showAlert(
-            alertBox,
-            "Password must contain at least 6 characters.",
-            "error"
-        );
+button.innerHTML =
+'<i class="fas fa-spinner fa-spin"></i> Creating account...';
 
-        return;
+try{
 
-    }
+const credential =
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
 
+const user =
+credential.user;
 
-    button.disabled = true;
+await setDoc(
+doc(db,"users",user.uid),
+{
+uid:user.uid,
+name:name,
+email:user.email,
+hostBank:hostBank,
+createdAt:serverTimestamp()
+}
+);
 
-    button.innerHTML =
-        '<i class="fas fa-spinner fa-spin"></i> Creating account...';
+}catch(error){
 
+console.error(error);
 
-    try {
+showAlert(
+alertBox,
+firebaseError(error),
+"error"
+);
 
-        const credential =
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+button.disabled=false;
 
+button.innerHTML =
+'<i class="fas fa-user-plus"></i> Create free profile';
 
-        const user =
-            credential.user;
-
-
-        /* SAVE PROFILE TO FIRESTORE */
-
-        await setDoc(
-            doc(db,"users",user.uid),
-            {
-
-                uid: user.uid,
-
-                name: name,
-
-                email: user.email,
-
-                hostBank: hostBank,
-
-                createdAt: serverTimestamp()
-
-            }
-        );
-
-
-        showAlert(
-            alertBox,
-            "Account created successfully!",
-            "success"
-        );
-
-
-        console.log(
-            "Profile saved:",
-            user.uid
-        );
-
-
-    } catch(error) {
-
-        console.error(error);
-
-        showAlert(
-            alertBox,
-            firebaseError(error),
-            "error"
-        );
-
-
-        button.disabled = false;
-
-        button.innerHTML =
-            '<i class="fas fa-user-plus"></i> Create free profile';
-
-    }
+}
 
 };
 
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
+/* AUTH STATE */
 
 onAuthStateChanged(
-    auth,
-    async function(user) {
+auth,
+async function(user){
 
-        if(user) {
+if(user){
 
-            await showDashboard(user);
+await showDashboard(user);
 
-        } else {
+}else{
 
-            showLoginPage();
+showLoginPage();
 
-        }
+}
 
-    }
+}
 );
 
 
-/* =====================================================
-   SHOW DASHBOARD
-===================================================== */
+/* SHOW DASHBOARD */
 
-async function showDashboard(user) {
+async function showDashboard(user){
 
-    document
-        .getElementById("authPage")
-        .classList.add("hidden");
+document
+.getElementById("authPage")
+.classList.add("hidden");
 
+document
+.getElementById("dashboardPage")
+.classList.remove("hidden");
 
-    document
-        .getElementById("dashboardPage")
-        .classList.remove("hidden");
+document
+.getElementById("profileEmail")
+.textContent =
+user.email || "";
 
+try{
 
-    document
-        .getElementById("profileEmail")
-        .textContent =
-        user.email || "";
+const profileRef =
+doc(db,"users",user.uid);
 
+const profileSnapshot =
+await getDoc(profileRef);
 
-    try {
+if(profileSnapshot.exists()){
 
-        const profileRef =
-            doc(db,"users",user.uid);
+const data =
+profileSnapshot.data();
 
+document
+.getElementById("dashboardName")
+.textContent =
+data.name || "Friend";
 
-        const profileSnapshot =
-            await getDoc(profileRef);
+document
+.getElementById("profileName")
+.textContent =
+data.name || "Not provided";
 
+document
+.getElementById("profileHostBank")
+.textContent =
+data.hostBank ? "Enabled" : "Disabled";
 
-        if(profileSnapshot.exists()) {
+}else{
 
-            const data =
-                profileSnapshot.data();
+document
+.getElementById("dashboardName")
+.textContent =
+"Friend";
 
+document
+.getElementById("profileName")
+.textContent =
+"Profile not found";
 
-            document
-                .getElementById("dashboardName")
-                .textContent =
-                data.name || "Friend";
+}
 
+}catch(error){
 
-            document
-                .getElementById("profileName")
-                .textContent =
-                data.name || "Not provided";
+console.error(error);
 
-
-            document
-                .getElementById("profileHostBank")
-                .textContent =
-                data.hostBank
-                    ? "Enabled"
-                    : "Disabled";
-
-        } else {
-
-            document
-                .getElementById("dashboardName")
-                .textContent =
-                "Friend";
-
-            document
-                .getElementById("profileName")
-                .textContent =
-                "Profile not found";
-
-        }
-
-    } catch(error) {
-
-        console.error(
-            "Firestore profile error:",
-            error
-        );
-
-        document
-            .getElementById("dashboardName")
-            .textContent =
-            "Friend";
-
-    }
+}
 
 }
 
 
-/* =====================================================
-   SHOW LOGIN
-===================================================== */
+/* LOGIN PAGE */
 
-function showLoginPage() {
+function showLoginPage(){
 
-    document
-        .getElementById("dashboardPage")
-        .classList.add("hidden");
+document
+.getElementById("dashboardPage")
+.classList.add("hidden");
 
-
-    document
-        .getElementById("authPage")
-        .classList.remove("hidden");
+document
+.getElementById("authPage")
+.classList.remove("hidden");
 
 }
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+/* LOGOUT */
 
-window.logoutUser = async function() {
+window.logoutUser = async function(){
 
-    try {
+try{
 
-        await signOut(auth);
+await signOut(auth);
 
-    } catch(error) {
+}catch(error){
 
-        console.error(error);
+console.error(error);
 
-    }
+}
 
 };
 
 
-/* =====================================================
-   FIREBASE ERRORS
-===================================================== */
+/* CREATE FUNDRAISER */
 
-function firebaseError(error) {
+window.createFundraiser = async function(){
 
-    switch(error.code) {
+const user =
+auth.currentUser;
 
-        case "auth/invalid-credential":
-            return "Incorrect email or password.";
+if(!user){
 
-        case "auth/email-already-in-use":
-            return "This email is already registered.";
+alert("Please login first.");
 
-        case "auth/invalid-email":
-            return "Please enter a valid email.";
+return;
+}
 
-        case "auth/weak-password":
-            return "Password must be at least 6 characters.";
+const title =
+document.getElementById("fundraiserTitle").value.trim();
 
-        case "auth/too-many-requests":
-            return "Too many attempts. Please try again later.";
+const category =
+document.getElementById("fundraiserCategory").value;
 
-        case "auth/operation-not-allowed":
-            return "Email/password authentication is not enabled.";
+const amount =
+Number(
+document.getElementById("fundraiserAmount").value
+);
 
-        case "permission-denied":
-            return "Firestore permission denied. Check your security rules.";
+const location =
+document.getElementById("fundraiserLocation").value.trim();
 
-        default:
-            return error.message || "Something went wrong.";
+const story =
+document.getElementById("fundraiserStory").value.trim();
 
-    }
+const alertBox =
+document.getElementById("fundraiserAlert");
+
+const button =
+document.getElementById("createFundraiserButton");
+
+
+if(!title || !amount || !location || !story){
+
+showAlert(
+alertBox,
+"Please complete all fundraiser fields.",
+"error"
+);
+
+return;
+}
+
+if(amount<=0){
+
+showAlert(
+alertBox,
+"Please enter a valid amount.",
+"error"
+);
+
+return;
+}
+
+button.disabled=true;
+
+button.innerHTML =
+'<i class="fas fa-spinner fa-spin"></i> Publishing...';
+
+
+try{
+
+const profileSnapshot =
+await getDoc(
+doc(db,"users",user.uid)
+);
+
+let creatorName =
+user.email;
+
+if(profileSnapshot.exists()){
+
+creatorName =
+profileSnapshot.data().name || user.email;
 
 }
 
 
-/* =====================================================
-   ALERT
-===================================================== */
+const fundraiserData = {
 
-function showAlert(element,message,type) {
+title:title,
 
-    element.textContent =
-        message;
+category:category,
 
-    element.className =
-        "alert " +
-        (type === "success"
-            ? "alert-success"
-            : "alert-error");
+amountNeeded:amount,
 
-}
+location:location,
 
+story:story,
 
-/* =====================================================
-   TEMPORARY DASHBOARD BUTTONS
-===================================================== */
+creatorId:user.uid,
 
-window.dashboardComingSoon = function(name) {
+creatorName:creatorName,
 
-    alert(
-        name +
-        " will be added next."
-    );
+creatorEmail:user.email,
+
+status:"pending",
+
+createdAt:serverTimestamp()
 
 };
 
+
+const fundraiserRef =
+await addDoc(
+collection(db,"fundraisers"),
+fundraiserData
+);
+
+
+console.log(
+"Fundraiser created:",
+fundraiserRef.id
+);
+
+
+showAlert(
+alertBox,
+"✅ Fundraiser created successfully!",
+"success"
+);
+
+
+/* CLEAR FORM */
+
+document.getElementById("fundraiserTitle").value="";
+document.getElementById("fundraiserAmount").value="";
+document.getElementById("fundraiserLocation").value="";
+document.getElementById("fundraiserStory").value="";
+
+
+button.disabled=false;
+
+button.innerHTML =
+'<i class="fas fa-plus-circle"></i> Publish Fundraiser';
+
+
+}catch(error){
+
+console.error(error);
+
+showAlert(
+alertBox,
+firebaseError(error),
+"error"
+);
+
+button.disabled=false;
+
+button.innerHTML =
+'<i class="fas fa-plus-circle"></i> Publish Fundraiser';
+
+}
+
+};
+
+
+/* LOAD MY FUNDRAISERS */
+
+window.loadMyFundraisers = async function(){
+
+const user =
+auth.currentUser;
+
+if(!user)return;
+
+const list =
+document.getElementById("fundraiserList");
+
+list.innerHTML =
+'<div class="empty-message">Loading...</div>';
+
+try{
+
+const q =
+query(
+collection(db,"fundraisers"),
+where("creatorId","==",user.uid)
+);
+
+const snapshot =
+await getDocs(q);
+
+if(snapshot.empty){
+
+list.innerHTML =
+'<div class="empty-message">You have not created any fundraisers yet.</div>';
+
+return;
+
+}
+
+list.innerHTML="";
+
+
+snapshot.forEach(function(docSnapshot){
+
+const data =
+docSnapshot.data();
+
+const card =
+document.createElement("div");
+
+card.className =
+"fundraiser-card";
+
+card.innerHTML = `
+
+<h3>${escapeHtml(data.title || "Untitled")}</h3>
+
+<p>
+${escapeHtml(data.story || "")}
+</p>
+
+<div class="fundraiser-meta">
+
+<span class="badge">
+${escapeHtml(data.category || "Other")}
+</span>
+
+<span class="badge">
+AED ${Number(data.amountNeeded || 0).toLocaleString()}
+</span>
+
+<span class="badge">
+${escapeHtml(data.location || "")}
+</span>
+
+<span class="badge">
+${escapeHtml(data.status || "pending")}
+</span>
+
+</div>
+
+<button class="delete-btn"
+onclick="deleteFundraiser('${docSnapshot.id}')">
+
+<i class="fas fa-trash"></i>
+Delete
+
+</button>
+
+`;
+
+list.appendChild(card);
+
+});
+
+}catch(error){
+
+console.error(error);
+
+list.innerHTML =
+'<div class="empty-message">Unable to load fundraisers. Check your Firestore rules.</div>';
+
+}
+
+};
+
+
+/* DELETE FUNDRAISER */
+
+window.deleteFundraiser = async function(id){
+
+const user =
+auth.currentUser;
+
+if(!user)return;
+
+if(!confirm("Are you sure you want to delete this fundraiser?")){
+
+return;
+
+}
+
+try{
+
+const fundraiserRef =
+doc(db,"fundraisers",id);
+
+const snapshot =
+await getDoc(fundraiserRef);
+
+if(!snapshot.exists()){
+
+alert("Fundraiser not found.");
+
+return;
+
+}
+
+const data =
+snapshot.data();
+
+if(data.creatorId !== user.uid){
+
+alert("You can only delete your own fundraiser.");
+
+return;
+
+}
+
+await deleteDoc(fundraiserRef);
+
+alert("Fundraiser deleted successfully.");
+
+loadMyFundraisers();
+
+}catch(error){
+
+console.error(error);
+
+alert(firebaseError(error));
+
+}
+
+};
+
+
+/* FIREBASE ERRORS */
+
+function firebaseError(error){
+
+switch(error.code){
+
+case "auth/invalid-credential":
+return "Incorrect email or password.";
+
+case "auth/email-already-in-use":
+return "This email is already registered.";
+
+case "auth/invalid-email":
+return "Please enter a valid email.";
+
+case "auth/weak-password":
+return "Password must contain at least 6 characters.";
+
+case "auth/too-many-requests":
+return "Too many attempts. Please try again later.";
+
+case "auth/operation-not-allowed":
+return "Email/password authentication is not enabled.";
+
+case "permission-denied":
+return "Firestore permission denied. Check your security rules.";
+
+default:
+return error.message || "Something went wrong.";
+
+}
+
+}
+
+
+/* ALERT */
+
+function showAlert(element,message,type){
+
+element.textContent=message;
+
+element.className =
+"alert " +
+(type==="success"
+? "alert-success"
+: "alert-error");
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHtml(value){
+
+const div =
+document.createElement("div");
+
+div.textContent =
+value;
+
+return div.innerHTML;
+
+}
+
+
+/* OPEN PAGE */
+
+window.openPage = function(pageId){
+
+document
+.getElementById("createFundraiserPage")
+.classList.add("hidden");
+
+document
+.getElementById("myFundraisersPage")
+.classList.add("hidden");
+
+document
+.getElementById(pageId)
+.classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+};
+
+
+/* CLOSE PAGES */
+
+window.closePages = function(){
+
+document
+.getElementById("createFundraiserPage")
+.classList.add("hidden");
+
+document
+.getElementById("myFundraisersPage")
+.classList.add("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+};
+
+
+/* TEMPORARY BUTTONS */
+
+window.dashboardComingSoon = function(name){
+
+alert(
+name +
+" will be added in the next stage."
+);
+
+};
 
 </script>
 
 
-<!-- =====================================================
-     TABS
-===================================================== -->
+<!-- ================= TABS ================= -->
 
 <script>
 
 document
 .querySelectorAll(".tab-btn")
-.forEach(function(tab) {
+.forEach(function(tab){
 
-    tab.addEventListener(
-        "click",
-        function() {
+tab.addEventListener(
+"click",
+function(){
 
-            document
-            .querySelectorAll(".tab-btn")
-            .forEach(function(t) {
+document
+.querySelectorAll(".tab-btn")
+.forEach(function(t){
 
-                t.classList.remove("active");
+t.classList.remove("active");
 
-            });
+});
 
+this.classList.add("active");
 
-            this.classList.add("active");
+const target =
+this.dataset.tab;
 
+document
+.getElementById("login-section")
+.classList.toggle(
+"active",
+target==="login"
+);
 
-            const target =
-                this.dataset.tab;
+document
+.getElementById("register-section")
+.classList.toggle(
+"active",
+target==="register"
+);
 
-
-            document
-            .getElementById("login-section")
-            .classList.toggle(
-                "active",
-                target === "login"
-            );
-
-
-            document
-            .getElementById("register-section")
-            .classList.toggle(
-                "active",
-                target === "register"
-            );
-
-        }
-    );
+});
 
 });
 
