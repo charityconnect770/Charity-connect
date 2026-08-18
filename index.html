@@ -12,523 +12,563 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Roboto,system-ui,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',Roboto,system-ui,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:linear-gradient(145deg,#f7f9fc,#eef2f7);
-    padding:15px;
-    color:#1f3a4b;
+min-height:100vh;
+background:linear-gradient(145deg,#f7f9fc,#eef2f7);
+padding:15px;
+color:#1f3a4b;
 }
 
 button{
-    cursor:pointer;
+cursor:pointer;
 }
 
 .hidden{
-    display:none!important;
+display:none!important;
 }
 
 .main-container,
 .dashboard{
-    max-width:1200px;
-    margin:auto;
+max-width:1200px;
+margin:auto;
 }
 
-/* ================= LOGIN ================= */
+/* LOGIN */
 
 .charity-card{
-    background:white;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:0 30px 50px rgba(0,20,30,.12);
-    display:flex;
-    flex-wrap:wrap;
-    margin-top:20px;
+background:#fff;
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 30px 50px rgba(0,20,30,.12);
+display:flex;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
 .welcome-panel{
-    flex:1 1 40%;
-    background:linear-gradient(160deg,#1e4b5e,#176b87);
-    color:white;
-    padding:45px 35px;
+flex:1 1 40%;
+background:linear-gradient(160deg,#1e4b5e,#176b87);
+color:#fff;
+padding:45px 35px;
 }
 
 .welcome-panel h1{
-    font-size:40px;
-    margin-bottom:15px;
+font-size:40px;
+margin-bottom:15px;
 }
 
 .welcome-panel h1 i{
-    color:#ffd166;
+color:#ffd166;
 }
 
 .tagline{
-    font-size:18px;
-    opacity:.9;
-    margin-bottom:20px;
+font-size:18px;
+opacity:.9;
+margin-bottom:20px;
 }
 
 .feature-highlight{
-    background:rgba(255,255,255,.1);
-    border-radius:22px;
-    padding:17px;
-    margin-top:15px;
+background:rgba(255,255,255,.1);
+border-radius:22px;
+padding:17px;
+margin-top:15px;
 }
 
 .feature-highlight p{
-    display:flex;
-    gap:12px;
-    align-items:center;
+display:flex;
+gap:12px;
+align-items:center;
 }
 
 .feature-highlight i{
-    color:#ffe5a3;
-    font-size:23px;
+color:#ffe5a3;
+font-size:23px;
 }
 
 .form-panel{
-    flex:1 1 60%;
-    padding:40px;
+flex:1 1 60%;
+padding:40px;
 }
 
 .tabs{
-    display:flex;
-    gap:25px;
-    border-bottom:1px solid #ddd;
-    margin-bottom:25px;
+display:flex;
+gap:25px;
+border-bottom:1px solid #ddd;
+margin-bottom:25px;
 }
 
 .tab-btn{
-    border:none;
-    background:none;
-    padding:10px 3px;
-    font-size:18px;
-    font-weight:600;
-    color:#6b7b8c;
+border:none;
+background:none;
+padding:10px 3px;
+font-size:18px;
+font-weight:600;
+color:#6b7b8c;
 }
 
 .tab-btn.active{
-    color:#176b87;
-    border-bottom:3px solid #176b87;
+color:#176b87;
+border-bottom:3px solid #176b87;
 }
 
 .form-section{
-    display:none;
-    flex-direction:column;
-    gap:16px;
+display:none;
+flex-direction:column;
+gap:16px;
 }
 
 .form-section.active{
-    display:flex;
+display:flex;
 }
 
 .input-group{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
+display:flex;
+flex-direction:column;
+gap:6px;
 }
 
 .input-group label{
-    font-weight:600;
+font-weight:600;
 }
 
 .input-field{
-    display:flex;
-    align-items:center;
-    background:#f8fafd;
-    border:1.5px solid #dde5ed;
-    border-radius:16px;
-    padding:12px 15px;
+display:flex;
+align-items:center;
+background:#f8fafd;
+border:1.5px solid #dde5ed;
+border-radius:16px;
+padding:12px 15px;
 }
 
 .input-field i{
-    margin-right:12px;
-    color:#56748c;
+margin-right:12px;
+color:#56748c;
 }
 
 .input-field input,
 .input-field textarea,
 .input-field select{
-    width:100%;
-    border:none;
-    outline:none;
-    background:transparent;
-    font-size:16px;
+width:100%;
+border:none;
+outline:none;
+background:transparent;
+font-size:16px;
 }
 
 .input-field textarea{
-    min-height:130px;
-    resize:vertical;
+min-height:130px;
+resize:vertical;
 }
 
 .btn-primary{
-    border:none;
-    background:#176b87;
-    color:white;
-    padding:14px 20px;
-    border-radius:30px;
-    font-size:17px;
-    font-weight:700;
-    margin-top:8px;
+border:none;
+background:#176b87;
+color:#fff;
+padding:14px 20px;
+border-radius:30px;
+font-size:17px;
+font-weight:700;
+margin-top:8px;
 }
 
 .btn-primary:hover{
-    background:#0f5a73;
+background:#0f5a73;
 }
 
 .btn-secondary{
-    border:none;
-    background:#e8f3f6;
-    color:#176b87;
-    padding:11px 17px;
-    border-radius:22px;
-    font-weight:700;
+border:none;
+background:#e8f3f6;
+color:#176b87;
+padding:11px 17px;
+border-radius:22px;
+font-weight:700;
 }
 
 .alert{
-    padding:12px;
-    border-radius:10px;
-    display:none;
+padding:12px;
+border-radius:10px;
+display:none;
 }
 
 .alert-success{
-    display:block;
-    background:#d4edda;
-    color:#155724;
+display:block;
+background:#d4edda;
+color:#155724;
 }
 
 .alert-error{
-    display:block;
-    background:#f8d7da;
-    color:#721c24;
+display:block;
+background:#f8d7da;
+color:#721c24;
 }
 
-.bank-host-option{
-    background:#f0f6fa;
-    border-left:4px solid #176b87;
-    border-radius:15px;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    gap:12px;
+.bank-host-option,
+.payment-option{
+background:#f0f6fa;
+border-left:4px solid #176b87;
+border-radius:15px;
+padding:15px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
-.bank-host-option div{
-    flex:1;
+.bank-host-option div,
+.payment-option div{
+flex:1;
 }
 
-.bank-host-option span{
-    display:block;
-    font-size:13px;
-    color:#657786;
+.bank-host-option span,
+.payment-option span{
+display:block;
+font-size:13px;
+color:#657786;
 }
 
-/* ================= DASHBOARD ================= */
+/* DASHBOARD */
 
 .dashboard-header{
-    background:linear-gradient(135deg,#1e4b5e,#176b87);
-    color:white;
-    padding:30px;
-    border-radius:30px;
-    margin-bottom:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
+background:linear-gradient(135deg,#1e4b5e,#176b87);
+color:#fff;
+padding:30px;
+border-radius:30px;
+margin-bottom:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
 }
 
 .dashboard-header h1{
-    font-size:30px;
+font-size:30px;
 }
 
 .dashboard-header p{
-    margin-top:6px;
-    opacity:.85;
+margin-top:6px;
+opacity:.85;
 }
 
 .logout-btn{
-    border:1px solid rgba(255,255,255,.6);
-    background:transparent;
-    color:white;
-    padding:10px 18px;
-    border-radius:25px;
-    font-weight:600;
+border:1px solid rgba(255,255,255,.6);
+background:transparent;
+color:#fff;
+padding:10px 18px;
+border-radius:25px;
+font-weight:600;
 }
 
-/* ================= PROFILE ================= */
+/* PROFILE */
 
-.profile-card{
-    background:white;
-    border-radius:25px;
-    padding:25px;
-    margin-bottom:20px;
-    box-shadow:0 10px 30px rgba(0,20,30,.08);
-}
-
-.profile-card h2{
-    color:#176b87;
-    margin-bottom:15px;
-}
-
-.profile-info{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.profile-info div{
-    background:#f7f9fc;
-    padding:14px;
-    border-radius:12px;
-}
-
-.profile-info strong{
-    display:block;
-    font-size:12px;
-    color:#6b7b8c;
-    margin-bottom:4px;
-}
-
-/* ================= DASHBOARD CARDS ================= */
-
-.dashboard-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.dashboard-card{
-    background:white;
-    border-radius:22px;
-    padding:25px;
-    min-height:150px;
-    box-shadow:0 10px 30px rgba(0,20,30,.08);
-    transition:.2s;
-    cursor:pointer;
-}
-
-.dashboard-card:hover{
-    transform:translateY(-3px);
-}
-
-.dashboard-card i{
-    font-size:30px;
-    color:#176b87;
-    margin-bottom:15px;
-}
-
-.dashboard-card h3{
-    margin-bottom:7px;
-}
-
-.dashboard-card p{
-    color:#6b7b8c;
-    font-size:14px;
-}
-
-/* ================= PAGES ================= */
-
+.profile-card,
 .app-page{
-    background:white;
-    border-radius:28px;
-    padding:30px;
-    margin-bottom:25px;
-    box-shadow:0 10px 30px rgba(0,20,30,.08);
+background:#fff;
+border-radius:25px;
+padding:25px;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,20,30,.08);
 }
 
+.profile-card h2,
 .page-title{
-    color:#176b87;
-    margin-bottom:20px;
+color:#176b87;
+margin-bottom:15px;
 }
 
 .page-title i{
-    margin-right:8px;
+margin-right:8px;
 }
+
+.profile-info{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.profile-info div{
+background:#f7f9fc;
+padding:14px;
+border-radius:12px;
+}
+
+.profile-info strong{
+display:block;
+font-size:12px;
+color:#6b7b8c;
+margin-bottom:4px;
+}
+
+/* DASHBOARD CARDS */
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-bottom:25px;
+}
+
+.dashboard-card{
+background:#fff;
+border-radius:22px;
+padding:25px;
+min-height:150px;
+box-shadow:0 10px 30px rgba(0,20,30,.08);
+transition:.2s;
+cursor:pointer;
+}
+
+.dashboard-card:hover{
+transform:translateY(-3px);
+}
+
+.dashboard-card i{
+font-size:30px;
+color:#176b87;
+margin-bottom:15px;
+}
+
+.dashboard-card h3{
+margin-bottom:7px;
+}
+
+.dashboard-card p{
+color:#6b7b8c;
+font-size:14px;
+}
+
+/* PAGES */
 
 .back-btn{
-    border:none;
-    background:#eef4f7;
-    color:#176b87;
-    padding:10px 18px;
-    border-radius:20px;
-    font-weight:600;
-    margin-bottom:20px;
+border:none;
+background:#eef4f7;
+color:#176b87;
+padding:10px 18px;
+border-radius:20px;
+font-weight:600;
+margin-bottom:20px;
 }
 
-/* ================= FUNDRAISERS ================= */
+/* FUNDRAISERS */
 
 .fundraiser-list{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
 }
 
 .fundraiser-card{
-    border:1px solid #e1e8ee;
-    border-radius:20px;
-    padding:20px;
-    background:#fbfcfd;
+border:1px solid #e1e8ee;
+border-radius:20px;
+padding:20px;
+background:#fbfcfd;
 }
 
 .fundraiser-card h3{
-    color:#176b87;
-    margin-bottom:10px;
+color:#176b87;
+margin-bottom:10px;
 }
 
 .fundraiser-card p{
-    color:#617180;
-    line-height:1.5;
-    margin-bottom:12px;
+color:#617180;
+line-height:1.5;
+margin-bottom:12px;
 }
 
 .fundraiser-meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:15px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:15px;
 }
 
 .badge{
-    background:#e8f3f6;
-    color:#176b87;
-    padding:6px 10px;
-    border-radius:15px;
-    font-size:12px;
-    font-weight:600;
+background:#e8f3f6;
+color:#176b87;
+padding:6px 10px;
+border-radius:15px;
+font-size:12px;
+font-weight:600;
 }
 
 .delete-btn{
-    border:none;
-    background:#e74c3c;
-    color:white;
-    padding:9px 15px;
-    border-radius:20px;
-    font-weight:600;
+border:none;
+background:#e74c3c;
+color:#fff;
+padding:9px 15px;
+border-radius:20px;
+font-weight:600;
 }
 
 .empty-message{
-    text-align:center;
-    padding:30px;
-    color:#71808c;
+text-align:center;
+padding:30px;
+color:#71808c;
 }
 
-/* ================= DONATE ================= */
+/* DONATE */
 
 .donate-box{
-    text-align:center;
-    background:#f7f9fc;
-    padding:25px;
-    border-radius:22px;
+background:#f7f9fc;
+padding:25px;
+border-radius:22px;
 }
 
 .paypal-box{
-    background:white;
-    padding:20px;
-    border-radius:20px;
-    display:inline-block;
-    box-shadow:0 8px 25px rgba(0,20,30,.08);
-    margin:15px auto;
+background:#fff;
+padding:20px;
+border-radius:20px;
+display:inline-block;
+box-shadow:0 8px 25px rgba(0,20,30,.08);
+margin:15px auto;
 }
 
 .paypal-box img{
-    width:min(100%,350px);
-    max-width:350px;
-    display:block;
-    border-radius:12px;
+width:min(100%,350px);
+max-width:350px;
+display:block;
+border-radius:12px;
 }
 
 .info-box{
-    margin-top:20px;
-    padding:15px;
-    background:#e8f3f6;
-    border-radius:15px;
-    color:#176b87;
+margin-top:20px;
+padding:15px;
+background:#e8f3f6;
+border-radius:15px;
+color:#176b87;
 }
 
-/* ================= NOTIFICATIONS ================= */
+.payment-details{
+margin-top:18px;
+padding:18px;
+border-radius:18px;
+background:#fff;
+border:1px solid #dfe8ee;
+}
+
+.payment-details h4{
+color:#176b87;
+margin-bottom:10px;
+}
+
+.detail-row{
+padding:8px 0;
+border-bottom:1px solid #edf1f4;
+word-break:break-word;
+}
+
+.detail-row:last-child{
+border-bottom:0;
+}
+
+/* NOTIFICATIONS */
 
 .notification{
-    padding:16px;
-    border-radius:15px;
-    background:#f7f9fc;
-    margin-bottom:12px;
-    border-left:4px solid #176b87;
+padding:16px;
+border-radius:15px;
+background:#f7f9fc;
+margin-bottom:12px;
+border-left:4px solid #176b87;
 }
 
 .notification strong{
-    display:block;
-    margin-bottom:5px;
+display:block;
+margin-bottom:5px;
 }
 
 .notification span{
-    color:#71808c;
-    font-size:14px;
+color:#71808c;
+font-size:14px;
 }
 
-/* ================= SETTINGS ================= */
+/* SETTINGS */
 
 .settings-row{
-    background:#f7f9fc;
-    border-radius:16px;
-    padding:18px;
-    margin-bottom:15px;
+background:#f7f9fc;
+border-radius:16px;
+padding:18px;
+margin-bottom:15px;
 }
 
-/* ================= MOBILE ================= */
+.section-note{
+background:#fff8e6;
+border-left:4px solid #e7b33c;
+padding:14px;
+border-radius:12px;
+margin-bottom:18px;
+color:#6d5a22;
+line-height:1.5;
+}
+
+.payment-fields{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.small-muted{
+font-size:13px;
+color:#71808c;
+line-height:1.5;
+}
+
+/* MOBILE */
 
 @media(max-width:800px){
 
-    .dashboard-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+.dashboard-grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .fundraiser-list{
-        grid-template-columns:1fr;
-    }
+.fundraiser-list{
+grid-template-columns:1fr;
+}
+
+.payment-fields{
+grid-template-columns:1fr;
+}
 
 }
 
 @media(max-width:600px){
 
-    body{
-        padding:10px;
-    }
+body{
+padding:10px;
+}
 
-    .welcome-panel,
-    .form-panel{
-        flex:1 1 100%;
-    }
+.welcome-panel,
+.form-panel{
+flex:1 1 100%;
+}
 
-    .welcome-panel h1{
-        font-size:32px;
-    }
+.welcome-panel h1{
+font-size:32px;
+}
 
-    .form-panel{
-        padding:25px;
-    }
+.form-panel{
+padding:25px;
+}
 
-    .dashboard-header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
+.dashboard-header{
+flex-direction:column;
+align-items:flex-start;
+}
 
-    .dashboard-grid{
-        grid-template-columns:1fr;
-    }
+.dashboard-grid{
+grid-template-columns:1fr;
+}
 
-    .profile-info{
-        grid-template-columns:1fr;
-    }
+.profile-info{
+grid-template-columns:1fr;
+}
 
-    .app-page{
-        padding:20px;
-    }
+.app-page{
+padding:20px;
+}
 
 }
 
@@ -600,27 +640,37 @@ Create Profile
 <div id="login-section" class="form-section active">
 
 <div class="input-group">
+
 <label>Email</label>
 
 <div class="input-field">
+
 <i class="fas fa-envelope"></i>
+
 <input
 id="loginEmail"
 type="email"
 placeholder="you@example.com">
+
 </div>
+
 </div>
 
 <div class="input-group">
+
 <label>Password</label>
 
 <div class="input-field">
+
 <i class="fas fa-lock"></i>
+
 <input
 id="loginPassword"
 type="password"
 placeholder="Password">
+
 </div>
+
 </div>
 
 <div id="loginAlert" class="alert"></div>
@@ -631,6 +681,7 @@ class="btn-primary"
 onclick="loginUser()">
 
 <i class="fas fa-sign-in-alt"></i>
+
 Log in to your account
 
 </button>
@@ -642,39 +693,54 @@ Log in to your account
 <div id="register-section" class="form-section">
 
 <div class="input-group">
+
 <label>Full name *</label>
 
 <div class="input-field">
+
 <i class="fas fa-user"></i>
+
 <input
 id="signupName"
 type="text"
 placeholder="Your full name">
+
 </div>
+
 </div>
 
 <div class="input-group">
+
 <label>Email address *</label>
 
 <div class="input-field">
+
 <i class="fas fa-envelope"></i>
+
 <input
 id="signupEmail"
 type="email"
 placeholder="you@example.com">
+
 </div>
+
 </div>
 
 <div class="input-group">
+
 <label>Password *</label>
 
 <div class="input-field">
+
 <i class="fas fa-key"></i>
+
 <input
 id="signupPassword"
 type="password"
 placeholder="Minimum 6 characters">
+
 </div>
+
 </div>
 
 <div class="bank-host-option">
@@ -682,8 +748,13 @@ placeholder="Minimum 6 characters">
 <i class="fas fa-university"></i>
 
 <div>
-<strong>Host a bank account</strong>
-<span>Enable secure fundraising</span>
+
+<strong>Host fundraisers</strong>
+
+<span>
+You can add payment details to each fundraiser.
+</span>
+
 </div>
 
 <input
@@ -701,6 +772,7 @@ class="btn-primary"
 onclick="signupUser()">
 
 <i class="fas fa-user-plus"></i>
+
 Create free profile
 
 </button>
@@ -708,7 +780,9 @@ Create free profile
 </div>
 
 </div>
+
 </div>
+
 </div>
 
 
@@ -723,7 +797,9 @@ DASHBOARD
 <div>
 
 <h1>
-Welcome, <span id="dashboardName">Friend</span> 👋
+Welcome,
+<span id="dashboardName">Friend</span>
+👋
 </h1>
 
 <p>
@@ -737,6 +813,7 @@ class="logout-btn"
 onclick="logoutUser()">
 
 <i class="fas fa-sign-out-alt"></i>
+
 Logout
 
 </button>
@@ -756,26 +833,47 @@ My Profile
 <div class="profile-info">
 
 <div>
+
 <strong>FULL NAME</strong>
-<span id="profileName">Loading...</span>
+
+<span id="profileName">
+Loading...
+</span>
+
 </div>
 
 <div>
+
 <strong>EMAIL</strong>
-<span id="profileEmail">Loading...</span>
+
+<span id="profileEmail">
+Loading...
+</span>
+
 </div>
 
 <div>
+
 <strong>ACCOUNT TYPE</strong>
-<span>CharityConnect Member</span>
+
+<span>
+CharityConnect Member
+</span>
+
 </div>
 
 <div>
+
 <strong>FUNDRAISING</strong>
-<span id="profileHostBank">Enabled</span>
+
+<span id="profileHostBank">
+Enabled
+</span>
+
 </div>
 
 </div>
+
 </div>
 
 
@@ -789,7 +887,9 @@ onclick="openPage('donatePage')">
 
 <i class="fas fa-heart"></i>
 
-<h3>Donate</h3>
+<h3>
+Donate
+</h3>
 
 <p>
 Support someone who needs help.
@@ -800,14 +900,16 @@ Support someone who needs help.
 
 <div
 class="dashboard-card"
-onclick="openPage('browsePage'); loadPublicFundraisers()">
+onclick="openPage('browsePage');loadPublicFundraisers()">
 
 <i class="fas fa-search"></i>
 
-<h3>Find Fundraisers</h3>
+<h3>
+Find Fundraisers
+</h3>
 
 <p>
-Browse available fundraising campaigns.
+Browse approved fundraising campaigns.
 </p>
 
 </div>
@@ -819,10 +921,12 @@ onclick="openPage('createFundraiserPage')">
 
 <i class="fas fa-hand-holding-heart"></i>
 
-<h3>Create Fundraiser</h3>
+<h3>
+Create Fundraiser
+</h3>
 
 <p>
-Create a campaign and ask for support.
+Create a campaign and add your own payment details.
 </p>
 
 </div>
@@ -830,11 +934,13 @@ Create a campaign and ask for support.
 
 <div
 class="dashboard-card"
-onclick="openPage('myFundraisersPage'); loadMyFundraisers()">
+onclick="openPage('myFundraisersPage');loadMyFundraisers()">
 
 <i class="fas fa-list"></i>
 
-<h3>My Fundraisers</h3>
+<h3>
+My Fundraisers
+</h3>
 
 <p>
 View and manage your campaigns.
@@ -845,11 +951,13 @@ View and manage your campaigns.
 
 <div
 class="dashboard-card"
-onclick="openPage('myDonationsPage'); loadMyDonations()">
+onclick="openPage('myDonationsPage');loadMyDonations()">
 
 <i class="fas fa-chart-line"></i>
 
-<h3>My Donations</h3>
+<h3>
+My Donations
+</h3>
 
 <p>
 Track your donation records.
@@ -864,7 +972,9 @@ onclick="openPage('notificationsPage')">
 
 <i class="fas fa-bell"></i>
 
-<h3>Notifications</h3>
+<h3>
+Notifications
+</h3>
 
 <p>
 View CharityConnect updates.
@@ -879,7 +989,9 @@ onclick="openPage('settingsPage')">
 
 <i class="fas fa-cog"></i>
 
-<h3>Settings</h3>
+<h3>
+Settings
+</h3>
 
 <p>
 Manage your account information.
@@ -903,6 +1015,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -910,29 +1023,27 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-heart"></i>
+
 Make a Donation
 
 </h2>
 
 <div class="donate-box">
 
-<h2 style="color:#176b87;">
-Support CharityConnect
+<h2 style="color:#176b87">
+
+Choose an approved fundraiser
+
 </h2>
 
-<p style="
-color:#617180;
-line-height:1.6;
-margin-top:10px;
-">
+<p
+class="small-muted"
+style="margin-top:8px">
 
-Your donation can help someone facing
-an emergency, medical problem, housing
-difficulty, food shortage, disability,
-education need, or other serious situation.
+Open Find Fundraisers to select a campaign.
+Payment details are shown only for approved campaigns.
 
 </p>
-
 
 <div class="paypal-box">
 
@@ -942,70 +1053,42 @@ alt="PayPal QR Code">
 
 </div>
 
+<h3 style="color:#176b87">
 
-<h3 style="
-color:#176b87;
-margin-top:10px;
-">
-
-Scan to Donate with PayPal
+CharityConnect PayPal
 
 </h3>
 
+<p class="small-muted">
 
-<p style="
-color:#617180;
-line-height:1.6;
-margin-top:10px;
-">
-
-Open PayPal and scan the QR code.
-Before sending money, please check
-the recipient details shown by PayPal.
+This QR is the platform PayPal option.
+For a fundraiser, use the payment details
+shown on that fundraiser's card.
 
 </p>
-
 
 <div class="info-box">
 
 <i class="fas fa-shield-alt"></i>
 
-<strong>
-PayPal recipient shown on the QR:
-Muhammad Ghani
-</strong>
-
-<br><br>
-
-Please verify the recipient before
-confirming your payment.
+Always verify the recipient name and account
+details before sending money.
 
 </div>
 
-
 <br>
 
-
 <h3>
-Already donated?
+Record a donation
 </h3>
 
-<p style="
-color:#71808c;
-margin:8px 0 15px;
-">
+<div
+class="input-group"
+style="text-align:left;margin-top:12px">
 
-You can record your donation below.
-This records your claim in CharityConnect;
-it does not independently verify the PayPal transaction.
-
-</p>
-
-
-<div class="input-group"
-style="text-align:left;">
-
-<label>Donation amount (AED)</label>
+<label>
+Donation amount (AED)
+</label>
 
 <div class="input-field">
 
@@ -1021,13 +1104,11 @@ placeholder="Example: 100">
 
 </div>
 
-
 <div
 id="donationAlert"
 class="alert"
-style="margin-top:15px;">
+style="margin-top:15px">
 </div>
-
 
 <button
 class="btn-primary"
@@ -1057,6 +1138,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1064,14 +1146,30 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-hand-holding-heart"></i>
+
 Create Fundraiser
 
 </h2>
 
+<div class="section-note">
+
+<strong>Important:</strong>
+
+Your fundraiser starts as
+<strong>Pending</strong>.
+
+Payment details are stored with the fundraiser
+but are not shown publicly until an administrator
+approves the campaign.
+
+</div>
+
 
 <div class="input-group">
 
-<label>Fundraiser title *</label>
+<label>
+Fundraiser title *
+</label>
 
 <div class="input-field">
 
@@ -1086,13 +1184,14 @@ placeholder="Example: Help a family build a safe home">
 
 </div>
 
-
 <br>
 
 
 <div class="input-group">
 
-<label>Category *</label>
+<label>
+Category *
+</label>
 
 <div class="input-field">
 
@@ -1100,31 +1199,31 @@ placeholder="Example: Help a family build a safe home">
 
 <select id="fundraiserCategory">
 
-<option value="Medical">
+<option>
 Medical
 </option>
 
-<option value="Emergency">
+<option>
 Emergency
 </option>
 
-<option value="Housing">
+<option>
 Housing
 </option>
 
-<option value="Education">
+<option>
 Education
 </option>
 
-<option value="Food">
+<option>
 Food
 </option>
 
-<option value="Disability">
+<option>
 Disability
 </option>
 
-<option value="Other">
+<option>
 Other
 </option>
 
@@ -1134,13 +1233,14 @@ Other
 
 </div>
 
-
 <br>
 
 
 <div class="input-group">
 
-<label>Amount needed (AED) *</label>
+<label>
+Amount needed (AED) *
+</label>
 
 <div class="input-field">
 
@@ -1156,13 +1256,14 @@ placeholder="Example: 50000">
 
 </div>
 
-
 <br>
 
 
 <div class="input-group">
 
-<label>Country / Location *</label>
+<label>
+Country / Location *
+</label>
 
 <div class="input-field">
 
@@ -1177,13 +1278,14 @@ placeholder="Example: Kohat, Pakistan">
 
 </div>
 
-
 <br>
 
 
 <div class="input-group">
 
-<label>Tell your story *</label>
+<label>
+Tell your story *
+</label>
 
 <div class="input-field">
 
@@ -1191,16 +1293,221 @@ placeholder="Example: Kohat, Pakistan">
 
 <textarea
 id="fundraiserStory"
-placeholder="Explain who needs help, why the money is needed, and how the funds will be used."></textarea>
+placeholder="Explain who needs help, why the money is needed, and how the funds will be used.">
+</textarea>
 
 </div>
 
 </div>
+
+<br>
+
+
+<!-- PAYMENT DETAILS -->
+
+<h3
+style="color:#176b87;margin-bottom:10px">
+
+<i class="fas fa-credit-card"></i>
+
+Your payment details
+
+</h3>
+
+<p
+class="small-muted"
+style="margin-bottom:14px">
+
+Enter the account where donors should send money.
+You may provide PayPal, bank details, or both.
+These details are hidden until approval.
+
+</p>
+
+
+<div class="payment-fields">
+
+
+<div class="input-group">
+
+<label>
+PayPal email
+</label>
+
+<div class="input-field">
+
+<i class="fab fa-paypal"></i>
+
+<input
+id="paypalEmail"
+type="email"
+placeholder="fundraiser@example.com">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+PayPal.me / payment link
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-link"></i>
+
+<input
+id="paypalLink"
+type="url"
+placeholder="https://paypal.me/yourname">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Bank account holder
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-user"></i>
+
+<input
+id="bankHolder"
+type="text"
+placeholder="Account holder name">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Bank name
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-building-columns"></i>
+
+<input
+id="bankName"
+type="text"
+placeholder="Bank name">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+IBAN
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-credit-card"></i>
+
+<input
+id="bankIban"
+type="text"
+placeholder="IBAN">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Account number
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-hashtag"></i>
+
+<input
+id="bankAccount"
+type="text"
+placeholder="Account number">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+SWIFT / BIC
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-globe"></i>
+
+<input
+id="bankSwift"
+type="text"
+placeholder="SWIFT / BIC">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Currency
+</label>
+
+<div class="input-field">
+
+<i class="fas fa-money-bill"></i>
+
+<input
+id="bankCurrency"
+type="text"
+value="AED"
+placeholder="AED">
+
+</div>
+
+</div>
+
+</div>
+
+
+<p
+class="small-muted"
+style="margin-top:12px">
+
+Only enter payment information you are comfortable
+sharing with donors.
+
+Do not enter passwords, PINs, OTPs, card CVVs,
+or online-banking login details.
+
+</p>
 
 
 <div
 id="fundraiserAlert"
-class="alert">
+class="alert"
+style="margin-top:15px">
 </div>
 
 
@@ -1211,7 +1518,7 @@ onclick="createFundraiser()">
 
 <i class="fas fa-plus-circle"></i>
 
-Publish Fundraiser
+Submit Fundraiser for Approval
 
 </button>
 
@@ -1231,6 +1538,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1238,6 +1546,7 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-list"></i>
+
 My Fundraisers
 
 </h2>
@@ -1268,6 +1577,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1275,10 +1585,10 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-search"></i>
+
 Find Fundraisers
 
 </h2>
-
 
 <div
 id="publicFundraiserList"
@@ -1306,6 +1616,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1313,13 +1624,12 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-chart-line"></i>
+
 My Donations
 
 </h2>
 
-
-<div
-id="donationList">
+<div id="donationList">
 
 <div class="empty-message">
 Loading donations...
@@ -1343,6 +1653,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1350,10 +1661,10 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-bell"></i>
+
 Notifications
 
 </h2>
-
 
 <div class="notification">
 
@@ -1371,12 +1682,12 @@ Thank you for joining our community.
 <div class="notification">
 
 <strong>
-Protect donors and beneficiaries
+Fundraiser approval
 </strong>
 
 <span>
-Only publish truthful fundraising information
-and use donations for the stated purpose.
+New campaigns remain pending until an
+administrator approves them.
 </span>
 
 </div>
@@ -1385,12 +1696,12 @@ and use donations for the stated purpose.
 <div class="notification">
 
 <strong>
-PayPal donations
+Payment safety
 </strong>
 
 <span>
-Always verify the recipient information
-before completing a PayPal payment.
+Never share passwords, PINs, OTPs or card CVVs.
+Verify payment details before sending money.
 </span>
 
 </div>
@@ -1411,6 +1722,7 @@ class="back-btn"
 onclick="closePages()">
 
 <i class="fas fa-arrow-left"></i>
+
 Back to Dashboard
 
 </button>
@@ -1418,6 +1730,7 @@ Back to Dashboard
 <h2 class="page-title">
 
 <i class="fas fa-cog"></i>
+
 Settings
 
 </h2>
@@ -1429,15 +1742,13 @@ Settings
 Profile Name
 </h3>
 
-<p style="
-color:#71808c;
-margin:5px 0 12px;
-">
+<p
+class="small-muted"
+style="margin:5px 0 12px">
 
 Change the name displayed on your dashboard.
 
 </p>
-
 
 <div class="input-field">
 
@@ -1450,7 +1761,6 @@ placeholder="Your name">
 
 </div>
 
-
 <button
 class="btn-primary"
 onclick="updateProfileName()">
@@ -1461,11 +1771,10 @@ Save Name
 
 </button>
 
-
 <div
 id="settingsAlert"
 class="alert"
-style="margin-top:15px;">
+style="margin-top:15px">
 </div>
 
 </div>
@@ -1479,10 +1788,8 @@ Account Email
 
 <p
 id="settingsEmail"
-style="
-color:#71808c;
-margin-top:8px;
-">
+class="small-muted"
+style="margin-top:8px">
 
 Loading...
 
@@ -1504,7 +1811,8 @@ FIREBASE
 import {
 initializeApp
 }
-from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+from
+"https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 
 
 import {
@@ -1514,7 +1822,8 @@ createUserWithEmailAndPassword,
 onAuthStateChanged,
 signOut
 }
-from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 
 import {
@@ -1531,14 +1840,13 @@ getDocs,
 deleteDoc,
 serverTimestamp
 }
-from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 
-/* =====================================================
-FIREBASE CONFIG
-===================================================== */
+/* FIREBASE CONFIG */
 
-const firebaseConfig = {
+const firebaseConfig={
 
 apiKey:
 "AIzaSyDK9kA9sinF2MWhDrxoPZbXaxMD9_HHvj8",
@@ -1564,13 +1872,13 @@ measurementId:
 };
 
 
-const app =
+const app=
 initializeApp(firebaseConfig);
 
-const auth =
+const auth=
 getAuth(app);
 
-const db =
+const db=
 getFirestore(app);
 
 
@@ -1579,46 +1887,44 @@ console.log(
 );
 
 
-/* =====================================================
-LOGIN
-===================================================== */
+/* LOGIN */
 
-window.loginUser = async function(){
+window.loginUser=async function(){
 
-const email =
+const email=
 document
 .getElementById("loginEmail")
 .value
 .trim();
 
-const password =
+const password=
 document
 .getElementById("loginPassword")
 .value;
 
-const alertBox =
-document.getElementById("loginAlert");
+const box=
+document
+.getElementById("loginAlert");
 
-const button =
-document.getElementById("loginButton");
+const button=
+document
+.getElementById("loginButton");
 
 
-if(!email || !password){
+if(!email||!password){
 
-showAlert(
-alertBox,
+return showAlert(
+box,
 "Please enter your email and password.",
 "error"
 );
-
-return;
 
 }
 
 
 button.disabled=true;
 
-button.innerHTML =
+button.innerHTML=
 '<i class="fas fa-spinner fa-spin"></i> Logging in...';
 
 
@@ -1630,19 +1936,17 @@ email,
 password
 );
 
-}catch(error){
-
-console.error(error);
+}catch(e){
 
 showAlert(
-alertBox,
-firebaseError(error),
+box,
+firebaseError(e),
 "error"
 );
 
 button.disabled=false;
 
-button.innerHTML =
+button.innerHTML=
 '<i class="fas fa-sign-in-alt"></i> Log in to your account';
 
 }
@@ -1650,95 +1954,88 @@ button.innerHTML =
 };
 
 
-/* =====================================================
-REGISTER
-===================================================== */
+/* REGISTER */
 
-window.signupUser = async function(){
+window.signupUser=async function(){
 
-const name =
+const name=
 document
 .getElementById("signupName")
 .value
 .trim();
 
-const email =
+const email=
 document
 .getElementById("signupEmail")
 .value
 .trim();
 
-const password =
+const password=
 document
 .getElementById("signupPassword")
 .value;
 
-const hostBank =
+const hostBank=
 document
 .getElementById("hostBank")
 .checked;
 
-const alertBox =
-document.getElementById("signupAlert");
+const box=
+document
+.getElementById("signupAlert");
 
-const button =
-document.getElementById("signupButton");
+const button=
+document
+.getElementById("signupButton");
 
 
-if(!name || !email || !password){
+if(!name||!email||!password){
 
-showAlert(
-alertBox,
+return showAlert(
+box,
 "Please fill in all required fields.",
 "error"
 );
 
-return;
-
 }
 
 
-if(password.length < 6){
+if(password.length<6){
 
-showAlert(
-alertBox,
+return showAlert(
+box,
 "Password must contain at least 6 characters.",
 "error"
 );
-
-return;
 
 }
 
 
 button.disabled=true;
 
-button.innerHTML =
+button.innerHTML=
 '<i class="fas fa-spinner fa-spin"></i> Creating account...';
 
 
 try{
 
-const credential =
+const c=
 await createUserWithEmailAndPassword(
 auth,
 email,
 password
 );
 
-const user =
-credential.user;
-
 
 await setDoc(
-doc(db,"users",user.uid),
+doc(db,"users",c.user.uid),
 {
 
-uid:user.uid,
+uid:c.user.uid,
 
 name:name,
 
-email:user.email,
+email:c.user.email,
 
 hostBank:hostBank,
 
@@ -1749,25 +2046,23 @@ createdAt:serverTimestamp()
 
 
 showAlert(
-alertBox,
+box,
 "Account created successfully!",
 "success"
 );
 
 
-}catch(error){
-
-console.error(error);
+}catch(e){
 
 showAlert(
-alertBox,
-firebaseError(error),
+box,
+firebaseError(e),
 "error"
 );
 
 button.disabled=false;
 
-button.innerHTML =
+button.innerHTML=
 '<i class="fas fa-user-plus"></i> Create free profile';
 
 }
@@ -1775,13 +2070,11 @@ button.innerHTML =
 };
 
 
-/* =====================================================
-AUTH STATE
-===================================================== */
+/* AUTH STATE */
 
 onAuthStateChanged(
 auth,
-async function(user){
+async user=>{
 
 if(user){
 
@@ -1797,9 +2090,7 @@ showLoginPage();
 );
 
 
-/* =====================================================
-SHOW DASHBOARD
-===================================================== */
+/* DASHBOARD */
 
 async function showDashboard(user){
 
@@ -1814,89 +2105,77 @@ document
 
 document
 .getElementById("profileEmail")
-.textContent =
-user.email || "";
+.textContent=
+user.email||"";
 
 
 document
 .getElementById("settingsEmail")
-.textContent =
-user.email || "";
+.textContent=
+user.email||"";
 
 
 try{
 
-const profileSnapshot =
+const s=
 await getDoc(
 doc(db,"users",user.uid)
 );
 
 
-if(profileSnapshot.exists()){
+if(s.exists()){
 
-const data =
-profileSnapshot.data();
+const d=
+s.data();
 
-
-const name =
-data.name || "Friend";
+const name=
+d.name||"Friend";
 
 
 document
 .getElementById("dashboardName")
-.textContent =
+.textContent=
 name;
 
 
 document
 .getElementById("profileName")
-.textContent =
+.textContent=
 name;
 
 
 document
 .getElementById("settingsName")
-.value =
+.value=
 name;
 
 
 document
 .getElementById("profileHostBank")
-.textContent =
-data.hostBank
-? "Enabled"
-: "Disabled";
-
+.textContent=
+d.hostBank
+?"Enabled"
+:"Disabled";
 
 }else{
 
 document
-.getElementById("dashboardName")
-.textContent =
-"Friend";
-
-document
 .getElementById("profileName")
-.textContent =
+.textContent=
 "Profile not found";
 
 }
 
-}catch(error){
+}catch(e){
 
-console.error(
-"Profile error:",
-error
-);
+console.error(e);
 
 }
 
 }
 
 
-/* =====================================================
-LOGIN PAGE
-===================================================== */
+/* LOGIN PAGE */
 
 function showLoginPage(){
 
@@ -1911,239 +2190,307 @@ document
 }
 
 
-/* =====================================================
-LOGOUT
-===================================================== */
+/* LOGOUT */
 
-window.logoutUser = async function(){
+window.logoutUser=async()=>{
 
 try{
 
 await signOut(auth);
 
-}catch(error){
+}catch(e){
 
-console.error(error);
+console.error(e);
 
 }
 
 };
 
 
-/* =====================================================
-CREATE FUNDRAISER
-===================================================== */
+/* HELPER */
 
-window.createFundraiser = async function(){
+const val=
+id=>
+document
+.getElementById(id)
+.value
+.trim();
 
-const user =
+
+/* CREATE FUNDRAISER */
+
+window.createFundraiser=async function(){
+
+const user=
 auth.currentUser;
+
 
 if(!user){
 
-alert("Please login first.");
-
-return;
+return alert(
+"Please login first."
+);
 
 }
 
 
-const title =
-document
-.getElementById("fundraiserTitle")
-.value
-.trim();
+const title=
+val("fundraiserTitle");
 
-const category =
+const category=
 document
 .getElementById("fundraiserCategory")
 .value;
 
-const amount =
+const amount=
 Number(
 document
 .getElementById("fundraiserAmount")
 .value
 );
 
-const location =
+const location=
+val("fundraiserLocation");
+
+const story=
+val("fundraiserStory");
+
+
+const paypalEmail=
+val("paypalEmail");
+
+const paypalLink=
+val("paypalLink");
+
+const bankHolder=
+val("bankHolder");
+
+const bankName=
+val("bankName");
+
+const bankIban=
+val("bankIban");
+
+const bankAccount=
+val("bankAccount");
+
+const bankSwift=
+val("bankSwift");
+
+const bankCurrency=
+val("bankCurrency")||"AED";
+
+
+const box=
 document
-.getElementById("fundraiserLocation")
-.value
-.trim();
+.getElementById("fundraiserAlert");
 
-const story =
+const button=
 document
-.getElementById("fundraiserStory")
-.value
-.trim();
-
-const alertBox =
-document.getElementById("fundraiserAlert");
-
-const button =
-document.getElementById("createFundraiserButton");
+.getElementById("createFundraiserButton");
 
 
-if(!title ||
-!amount ||
-!location ||
-!story){
+if(
+!title||
+!amount||
+!location||
+!story
+){
 
-showAlert(
-alertBox,
-"Please complete all fundraiser fields.",
+return showAlert(
+box,
+"Please complete all required fundraiser fields.",
 "error"
 );
-
-return;
 
 }
 
 
-if(amount <= 0){
+if(
+!paypalEmail&&
+!paypalLink&&
+!bankHolder&&
+!bankName&&
+!bankIban&&
+!bankAccount&&
+!bankSwift
+){
 
-showAlert(
-alertBox,
-"Please enter a valid amount.",
+return showAlert(
+box,
+"Please add at least one PayPal or bank payment method.",
 "error"
 );
 
-return;
+}
+
+
+if(amount<=0){
+
+return showAlert(
+box,
+"Please enter a valid amount.",
+"error"
+);
 
 }
 
 
 button.disabled=true;
 
-button.innerHTML =
-'<i class="fas fa-spinner fa-spin"></i> Publishing...';
+button.innerHTML=
+'<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
 
 try{
 
-const profileSnapshot =
+const ps=
 await getDoc(
 doc(db,"users",user.uid)
 );
 
 
-let creatorName =
+const creatorName=
+ps.exists()
+?
+(ps.data().name||user.email)
+:
 user.email;
-
-
-if(profileSnapshot.exists()){
-
-creatorName =
-profileSnapshot.data().name
-|| user.email;
-
-}
 
 
 await addDoc(
 collection(db,"fundraisers"),
 {
 
-title:title,
+title,
 
-category:category,
+category,
 
 amountNeeded:amount,
 
-location:location,
+location,
 
-story:story,
+story,
 
 creatorId:user.uid,
 
-creatorName:creatorName,
+creatorName,
 
 creatorEmail:user.email,
 
 status:"pending",
 
-createdAt:serverTimestamp()
+payment:{
+
+paypalEmail:
+paypalEmail||null,
+
+paypalLink:
+paypalLink||null,
+
+bankHolder:
+bankHolder||null,
+
+bankName:
+bankName||null,
+
+bankIban:
+bankIban||null,
+
+bankAccount:
+bankAccount||null,
+
+bankSwift:
+bankSwift||null,
+
+bankCurrency:
+bankCurrency||"AED"
+
+},
+
+createdAt:
+serverTimestamp()
 
 }
 );
 
 
 showAlert(
-alertBox,
-"✅ Fundraiser created successfully!",
+box,
+"✅ Fundraiser submitted. It is now Pending and payment details will be shown only after admin approval.",
 "success"
 );
 
 
+[
+"fundraiserTitle",
+"fundraiserAmount",
+"fundraiserLocation",
+"fundraiserStory",
+"paypalEmail",
+"paypalLink",
+"bankHolder",
+"bankName",
+"bankIban",
+"bankAccount",
+"bankSwift"
+]
+.forEach(
+id=>
 document
-.getElementById("fundraiserTitle")
-.value="";
+.getElementById(id)
+.value=""
+);
 
 
 document
-.getElementById("fundraiserAmount")
-.value="";
+.getElementById("bankCurrency")
+.value="AED";
 
 
-document
-.getElementById("fundraiserLocation")
-.value="";
+}catch(e){
 
-
-document
-.getElementById("fundraiserStory")
-.value="";
-
-
-button.disabled=false;
-
-button.innerHTML =
-'<i class="fas fa-plus-circle"></i> Publish Fundraiser';
-
-
-}catch(error){
-
-console.error(error);
+console.error(e);
 
 showAlert(
-alertBox,
-firebaseError(error),
+box,
+firebaseError(e),
 "error"
 );
 
+}
+
+
 button.disabled=false;
 
-button.innerHTML =
-'<i class="fas fa-plus-circle"></i> Publish Fundraiser';
-
-}
+button.innerHTML=
+'<i class="fas fa-plus-circle"></i> Submit Fundraiser for Approval';
 
 };
 
 
-/* =====================================================
-MY FUNDRAISERS
-===================================================== */
+/* MY FUNDRAISERS */
 
-window.loadMyFundraisers = async function(){
+window.loadMyFundraisers=async function(){
 
-const user =
+const user=
 auth.currentUser;
 
 if(!user)return;
 
 
-const list =
-document.getElementById("fundraiserList");
+const list=
+document
+.getElementById("fundraiserList");
 
-list.innerHTML =
+
+list.innerHTML=
 '<div class="empty-message">Loading...</div>';
 
 
 try{
 
-const q =
+const q=
 query(
 collection(db,"fundraisers"),
 where(
@@ -2154,13 +2501,13 @@ user.uid
 );
 
 
-const snapshot =
+const s=
 await getDocs(q);
 
 
-if(snapshot.empty){
+if(s.empty){
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">You have not created any fundraisers yet.</div>';
 
 return;
@@ -2171,71 +2518,80 @@ return;
 list.innerHTML="";
 
 
-snapshot.forEach(
-function(docSnapshot){
+s.forEach(x=>{
 
-const data =
-docSnapshot.data();
+const d=
+x.data();
 
-
-const card =
+const card=
 document.createElement("div");
 
-card.className =
+card.className=
 "fundraiser-card";
 
 
-card.innerHTML = `
+let paymentStatus=
+d.status==="approved"
+?
+paymentHtml(d.payment,true)
+:
+'<div class="info-box"><i class="fas fa-clock"></i> Payment details are hidden until an administrator approves this fundraiser.</div>';
 
-<h3>
-${escapeHtml(data.title || "Untitled")}
+
+card.innerHTML=
+
+`<h3>
+${escapeHtml(d.title||"Untitled")}
 </h3>
 
 <p>
-${escapeHtml(data.story || "")}
+${escapeHtml(d.story||"")}
 </p>
 
 <div class="fundraiser-meta">
 
 <span class="badge">
-${escapeHtml(data.category || "Other")}
+${escapeHtml(d.category||"Other")}
 </span>
 
 <span class="badge">
-AED ${Number(data.amountNeeded || 0).toLocaleString()}
+AED ${Number(d.amountNeeded||0).toLocaleString()}
 </span>
 
 <span class="badge">
-${escapeHtml(data.location || "")}
+${escapeHtml(d.location||"")}
 </span>
 
 <span class="badge">
-${escapeHtml(data.status || "pending")}
+${escapeHtml(d.status||"pending")}
 </span>
 
 </div>
 
+${paymentStatus}
+
+<br>
+
 <button
 class="delete-btn"
-onclick="deleteFundraiser('${docSnapshot.id}')">
+onclick="deleteFundraiser('${x.id}')">
 
 <i class="fas fa-trash"></i>
 Delete
 
-</button>
-
-`;
+</button>`;
 
 
 list.appendChild(card);
 
 });
 
-}catch(error){
 
-console.error(error);
+}catch(e){
 
-list.innerHTML =
+console.error(e);
+
+list.innerHTML=
 '<div class="empty-message">Unable to load fundraisers. Check Firestore rules.</div>';
 
 }
@@ -2243,64 +2599,220 @@ list.innerHTML =
 };
 
 
-/* =====================================================
-DELETE FUNDRAISER
-===================================================== */
+/* PAYMENT HTML */
 
-window.deleteFundraiser = async function(id){
+function paymentHtml(p,show){
 
-const user =
-auth.currentUser;
+if(!p||!show)return "";
 
-if(!user)return;
+let h=
+'<div class="payment-details"><h4><i class="fas fa-credit-card"></i> Approved payment details</h4>';
 
 
-if(!confirm(
-"Are you sure you want to delete this fundraiser?"
-)){
+if(p.paypalEmail){
 
-return;
+h+=
+`<div class="detail-row">
+<strong>PayPal:</strong>
+${escapeHtml(p.paypalEmail)}
+</div>`;
 
 }
+
+
+if(p.paypalLink){
+
+const safe=
+validHttpUrl(p.paypalLink)
+?
+p.paypalLink
+:
+"#";
+
+
+h+=
+
+`<div class="detail-row">
+<strong>PayPal link:</strong>
+
+${
+safe!=="#"
+?
+`<a href="${escapeAttr(safe)}" target="_blank" rel="noopener noreferrer">Open PayPal</a>`
+:
+"Invalid link"
+}
+
+</div>`;
+
+}
+
+
+if(p.bankHolder){
+
+h+=
+`<div class="detail-row">
+<strong>Account holder:</strong>
+${escapeHtml(p.bankHolder)}
+</div>`;
+
+}
+
+
+if(p.bankName){
+
+h+=
+`<div class="detail-row">
+<strong>Bank:</strong>
+${escapeHtml(p.bankName)}
+</div>`;
+
+}
+
+
+if(p.bankIban){
+
+h+=
+`<div class="detail-row">
+<strong>IBAN:</strong>
+${escapeHtml(p.bankIban)}
+</div>`;
+
+}
+
+
+if(p.bankAccount){
+
+h+=
+`<div class="detail-row">
+<strong>Account number:</strong>
+${escapeHtml(p.bankAccount)}
+</div>`;
+
+}
+
+
+if(p.bankSwift){
+
+h+=
+`<div class="detail-row">
+<strong>SWIFT/BIC:</strong>
+${escapeHtml(p.bankSwift)}
+</div>`;
+
+}
+
+
+if(p.bankCurrency){
+
+h+=
+`<div class="detail-row">
+<strong>Currency:</strong>
+${escapeHtml(p.bankCurrency)}
+</div>`;
+
+}
+
+
+return h+"</div>";
+
+}
+
+
+/* URL CHECK */
+
+function validHttpUrl(u){
+
+try{
+
+const x=
+new URL(u);
+
+return(
+x.protocol==="https:"||
+x.protocol==="http:"
+);
+
+}catch{
+
+return false;
+
+}
+
+}
+
+
+/* ATTRIBUTE ESCAPE */
+
+function escapeAttr(v){
+
+return String(v)
+
+.replace(/&/g,"&amp;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;");
+
+}
+
+
+/* DELETE FUNDRAISER */
+
+window.deleteFundraiser=
+async function(id){
+
+const user=
+auth.currentUser;
+
+
+if(
+!user||
+!confirm(
+"Are you sure you want to delete this fundraiser?"
+)
+)return;
 
 
 try{
 
-const fundraiserRef =
-doc(db,"fundraisers",id);
+const r=
+doc(
+db,
+"fundraisers",
+id
+);
 
 
-const snapshot =
-await getDoc(fundraiserRef);
+const s=
+await getDoc(r);
 
 
-if(!snapshot.exists()){
+if(!s.exists()){
 
-alert("Fundraiser not found.");
-
-return;
+return alert(
+"Fundraiser not found."
+);
 
 }
 
 
-const data =
-snapshot.data();
+if(
+s.data().creatorId
+!==
+user.uid
+){
 
-
-if(data.creatorId !== user.uid){
-
-alert(
+return alert(
 "You can only delete your own fundraiser."
 );
 
-return;
-
 }
 
 
-await deleteDoc(
-fundraiserRef
-);
+await deleteDoc(r);
 
 
 alert(
@@ -2311,12 +2823,10 @@ alert(
 loadMyFundraisers();
 
 
-}catch(error){
-
-console.error(error);
+}catch(e){
 
 alert(
-firebaseError(error)
+firebaseError(e)
 );
 
 }
@@ -2324,109 +2834,111 @@ firebaseError(error)
 };
 
 
-/* =====================================================
-PUBLIC FUNDRAISERS
-===================================================== */
+/* PUBLIC FUNDRAISERS */
 
-window.loadPublicFundraisers = async function(){
+window.loadPublicFundraisers=
+async function(){
 
-const list =
-document.getElementById(
+const list=
+document
+.getElementById(
 "publicFundraiserList"
 );
 
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">Loading fundraisers...</div>';
 
 
 try{
 
-const snapshot =
+const s=
 await getDocs(
-collection(db,"fundraisers")
+collection(
+db,
+"fundraisers"
+)
 );
 
 
 list.innerHTML="";
 
-
 let count=0;
 
 
-snapshot.forEach(
-function(docSnapshot){
+s.forEach(x=>{
 
-const data =
-docSnapshot.data();
+const d=
+x.data();
 
 
-/*
-Only show approved campaigns
-on the public page.
-*/
-
-if(data.status &&
-data.status !== "approved"){
-
-return;
-
-}
+if(
+d.status!=="approved"
+)return;
 
 
 count++;
 
 
-const card =
+const card=
 document.createElement("div");
 
-card.className =
+card.className=
 "fundraiser-card";
 
 
-card.innerHTML = `
+card.innerHTML=
 
-<h3>
-${escapeHtml(data.title || "Untitled")}
+`<h3>
+${escapeHtml(d.title||"Untitled")}
 </h3>
 
 <p>
-${escapeHtml(data.story || "")}
+${escapeHtml(d.story||"")}
 </p>
 
 <div class="fundraiser-meta">
 
 <span class="badge">
-${escapeHtml(data.category || "Other")}
+${escapeHtml(d.category||"Other")}
 </span>
 
 <span class="badge">
-AED ${Number(data.amountNeeded || 0).toLocaleString()}
+AED ${Number(d.amountNeeded||0).toLocaleString()}
 </span>
 
 <span class="badge">
-${escapeHtml(data.location || "")}
+${escapeHtml(d.location||"")}
 </span>
 
 </div>
 
-<p style="font-size:13px;">
+<p style="font-size:13px">
+
 Created by:
+
 <strong>
-${escapeHtml(data.creatorName || "CharityConnect member")}
+${escapeHtml(
+d.creatorName||
+"CharityConnect member"
+)}
 </strong>
+
 </p>
+
+${paymentHtml(d.payment,true)}
+
+<br>
 
 <button
 class="btn-secondary"
-onclick="openPage('donatePage')">
+onclick="recordDonationPrompt('${x.id}')">
 
 <i class="fas fa-heart"></i>
-Donate
 
-</button>
+I Donated
 
-`;
+</button>`;
 
 
 list.appendChild(card);
@@ -2434,19 +2946,19 @@ list.appendChild(card);
 });
 
 
-if(count===0){
+if(!count){
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">No approved fundraisers are available yet.</div>';
 
 }
 
 
-}catch(error){
+}catch(e){
 
-console.error(error);
+console.error(e);
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">Unable to load fundraisers. Check Firestore rules.</div>';
 
 }
@@ -2454,25 +2966,49 @@ list.innerHTML =
 };
 
 
-/* =====================================================
-RECORD DONATION
-===================================================== */
+/* DONATION PROMPT */
 
-window.recordDonation = async function(){
+window.recordDonationPrompt=
+function(fid){
 
-const user =
+document
+.getElementById("donationAmount")
+.focus();
+
+
+document
+.getElementById("donationAmount")
+.dataset
+.fundraiserId=
+fid;
+
+
+openPage(
+"donatePage"
+);
+
+};
+
+
+/* RECORD DONATION */
+
+window.recordDonation=
+async function(){
+
+const user=
 auth.currentUser;
+
 
 if(!user){
 
-alert("Please login first.");
-
-return;
+return alert(
+"Please login first."
+);
 
 }
 
 
-const amount =
+const amount=
 Number(
 document
 .getElementById("donationAmount")
@@ -2480,21 +3016,30 @@ document
 );
 
 
-const alertBox =
-document.getElementById(
-"donationAlert"
-);
+const fid=
+document
+.getElementById("donationAmount")
+.dataset
+.fundraiserId
+||
+null;
 
 
-if(!amount || amount <= 0){
+const box=
+document
+.getElementById("donationAlert");
 
-showAlert(
-alertBox,
+
+if(
+!amount||
+amount<=0
+){
+
+return showAlert(
+box,
 "Please enter a valid donation amount.",
 "error"
 );
-
-return;
 
 }
 
@@ -2505,17 +3050,25 @@ await addDoc(
 collection(db,"donations"),
 {
 
-donorId:user.uid,
+donorId:
+user.uid,
 
-donorEmail:user.email,
+donorEmail:
+user.email,
 
-amount:amount,
+amount,
 
-method:"PayPal QR",
+method:
+"Direct fundraiser payment",
 
-status:"user-reported",
+fundraiserId:
+fid,
 
-createdAt:serverTimestamp()
+status:
+"user-reported",
+
+createdAt:
+serverTimestamp()
 
 }
 );
@@ -2526,20 +3079,24 @@ document
 .value="";
 
 
+document
+.getElementById("donationAmount")
+.dataset
+.fundraiserId="";
+
+
 showAlert(
-alertBox,
+box,
 "❤️ Donation record saved successfully.",
 "success"
 );
 
 
-}catch(error){
-
-console.error(error);
+}catch(e){
 
 showAlert(
-alertBox,
-firebaseError(error),
+box,
+firebaseError(e),
 "error"
 );
 
@@ -2548,31 +3105,31 @@ firebaseError(error),
 };
 
 
-/* =====================================================
-LOAD MY DONATIONS
-===================================================== */
+/* MY DONATIONS */
 
-window.loadMyDonations = async function(){
+window.loadMyDonations=
+async function(){
 
-const user =
+const user=
 auth.currentUser;
 
 if(!user)return;
 
 
-const list =
-document.getElementById(
+const list=
+document
+.getElementById(
 "donationList"
 );
 
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">Loading donations...</div>';
 
 
 try{
 
-const q =
+const q=
 query(
 collection(db,"donations"),
 where(
@@ -2583,13 +3140,13 @@ user.uid
 );
 
 
-const snapshot =
+const s=
 await getDocs(q);
 
 
-if(snapshot.empty){
+if(s.empty){
 
-list.innerHTML =
+list.innerHTML=
 '<div class="empty-message">You have not recorded any donations yet.</div>';
 
 return;
@@ -2600,50 +3157,54 @@ return;
 list.innerHTML="";
 
 
-snapshot.forEach(
-function(docSnapshot){
+s.forEach(x=>{
 
-const data =
-docSnapshot.data();
+const d=
+x.data();
 
-
-const card =
+const card=
 document.createElement("div");
 
-card.className =
+card.className=
 "notification";
 
 
-card.innerHTML = `
+card.innerHTML=
 
-<strong>
+`<strong>
 Donation: AED ${Number(
-data.amount || 0
+d.amount||0
 ).toLocaleString()}
 </strong>
 
 <span>
-Method: ${escapeHtml(
-data.method || "PayPal"
+Method:
+${escapeHtml(
+d.method||
+"Direct payment"
 )}
-<br>
-Status: ${escapeHtml(
-data.status || "Recorded"
-)}
-</span>
 
-`;
+<br>
+
+Status:
+${escapeHtml(
+d.status||
+"Recorded"
+)}
+
+</span>`;
 
 
 list.appendChild(card);
 
 });
 
-}catch(error){
 
-console.error(error);
+}catch(e){
 
-list.innerHTML =
+console.error(e);
+
+list.innerHTML=
 '<div class="empty-message">Unable to load donations. Check Firestore rules.</div>';
 
 }
@@ -2651,40 +3212,34 @@ list.innerHTML =
 };
 
 
-/* =====================================================
-UPDATE PROFILE
-===================================================== */
+/* UPDATE PROFILE */
 
-window.updateProfileName = async function(){
+window.updateProfileName=
+async function(){
 
-const user =
+const user=
 auth.currentUser;
 
 if(!user)return;
 
 
-const name =
+const name=
+val("settingsName");
+
+const box=
 document
-.getElementById("settingsName")
-.value
-.trim();
-
-
-const alertBox =
-document.getElementById(
+.getElementById(
 "settingsAlert"
 );
 
 
 if(!name){
 
-showAlert(
-alertBox,
+return showAlert(
+box,
 "Please enter your name.",
 "error"
 );
-
-return;
 
 }
 
@@ -2692,41 +3247,47 @@ return;
 try{
 
 await updateDoc(
-doc(db,"users",user.uid),
+doc(
+db,
+"users",
+user.uid
+),
 {
 
-name:name
+name
 
 }
 );
 
 
 document
-.getElementById("dashboardName")
-.textContent =
+.getElementById(
+"dashboardName"
+)
+.textContent=
 name;
 
 
 document
-.getElementById("profileName")
-.textContent =
+.getElementById(
+"profileName"
+)
+.textContent=
 name;
 
 
 showAlert(
-alertBox,
+box,
 "Profile name updated successfully.",
 "success"
 );
 
 
-}catch(error){
-
-console.error(error);
+}catch(e){
 
 showAlert(
-alertBox,
-firebaseError(error),
+box,
+firebaseError(e),
 "error"
 );
 
@@ -2735,55 +3296,33 @@ firebaseError(error),
 };
 
 
-/* =====================================================
-OPEN PAGE
-===================================================== */
+/* OPEN PAGE */
 
-window.openPage = function(pageId){
-
-const pages = [
-
-"donatePage",
-
-"createFundraiserPage",
-
-"myFundraisersPage",
-
-"browsePage",
-
-"myDonationsPage",
-
-"notificationsPage",
-
-"settingsPage"
-
-];
-
-
-pages.forEach(
+window.openPage=
 function(id){
 
-const page =
-document.getElementById(id);
+[
+"donatePage",
+"createFundraiserPage",
+"myFundraisersPage",
+"browsePage",
+"myDonationsPage",
+"notificationsPage",
+"settingsPage"
+]
+.forEach(
+x=>
+document
+.getElementById(x)
+?.classList
+.add("hidden")
+);
 
-if(page){
 
-page.classList.add("hidden");
-
-}
-
-});
-
-
-const selectedPage =
-document.getElementById(pageId);
-
-
-if(selectedPage){
-
-selectedPage.classList.remove("hidden");
-
-}
+document
+.getElementById(id)
+?.classList
+.remove("hidden");
 
 
 window.scrollTo({
@@ -2794,44 +3333,27 @@ behavior:"smooth"
 };
 
 
-/* =====================================================
-CLOSE PAGES
-===================================================== */
+/* CLOSE PAGES */
 
-window.closePages = function(){
+window.closePages=
+function(){
 
-const pages = [
-
+[
 "donatePage",
-
 "createFundraiserPage",
-
 "myFundraisersPage",
-
 "browsePage",
-
 "myDonationsPage",
-
 "notificationsPage",
-
 "settingsPage"
-
-];
-
-
-pages.forEach(
-function(id){
-
-const page =
-document.getElementById(id);
-
-if(page){
-
-page.classList.add("hidden");
-
-}
-
-});
+]
+.forEach(
+x=>
+document
+.getElementById(x)
+?.classList
+.add("hidden")
+);
 
 
 window.scrollTo({
@@ -2842,83 +3364,82 @@ behavior:"smooth"
 };
 
 
-/* =====================================================
-ALERT
-===================================================== */
+/* ALERT */
 
 function showAlert(
-element,
-message,
+el,
+msg,
 type
 ){
 
-element.textContent =
-message;
+el.textContent=
+msg;
 
-
-element.className =
-"alert " +
+el.className=
+"alert "+
 (
-type === "success"
-? "alert-success"
-: "alert-error"
+type==="success"
+?
+"alert-success"
+:
+"alert-error"
 );
 
 }
 
 
-/* =====================================================
-ESCAPE HTML
-===================================================== */
+/* ESCAPE HTML */
 
-function escapeHtml(value){
+function escapeHtml(v){
 
-const div =
+const d=
 document.createElement("div");
 
-div.textContent =
-value;
+d.textContent=
+String(v??"");
 
-return div.innerHTML;
+return d.innerHTML;
 
 }
 
 
-/* =====================================================
-FIREBASE ERRORS
-===================================================== */
+/* FIREBASE ERRORS */
 
-function firebaseError(error){
+function firebaseError(e){
 
-switch(error.code){
+switch(e.code){
 
 case "auth/invalid-credential":
+
 return "Incorrect email or password.";
 
 case "auth/email-already-in-use":
+
 return "This email is already registered.";
 
 case "auth/invalid-email":
+
 return "Please enter a valid email.";
 
 case "auth/weak-password":
+
 return "Password must contain at least 6 characters.";
 
 case "auth/too-many-requests":
+
 return "Too many attempts. Please try again later.";
 
 case "auth/operation-not-allowed":
+
 return "Email/password authentication is not enabled.";
 
 case "permission-denied":
-return "Firestore permission denied. Check your Firestore rules.";
 
-case "permission-denied":
-return "Firestore permission denied.";
+return "Firestore permission denied. Check your Firestore rules.";
 
 default:
 
-return error.message ||
+return e.message||
 "Something went wrong.";
 
 }
@@ -2928,17 +3449,14 @@ return error.message ||
 </script>
 
 
-<!-- =====================================================
-TABS
-===================================================== -->
+<!-- TABS -->
 
 <script>
 
 document
 .querySelectorAll(".tab-btn")
 .forEach(
-function(tab){
-
+tab=>
 tab.addEventListener(
 "click",
 function(){
@@ -2946,38 +3464,33 @@ function(){
 document
 .querySelectorAll(".tab-btn")
 .forEach(
-function(t){
-
-t.classList.remove("active");
-
-});
-
+t=>
+t.classList.remove("active")
+);
 
 this.classList.add("active");
 
-
-const target =
+const target=
 this.dataset.tab;
-
 
 document
 .getElementById("login-section")
-.classList.toggle(
+.classList
+.toggle(
 "active",
-target === "login"
+target==="login"
 );
-
 
 document
 .getElementById("register-section")
-.classList.toggle(
+.classList
+.toggle(
 "active",
-target === "register"
+target==="register"
 );
 
-});
-
-});
+})
+);
 
 </script>
 
